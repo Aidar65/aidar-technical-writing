@@ -44,4 +44,4 @@ cd aidar-technical-writing
 pip install mkdocs-material
 mkdocs serve
 
-# Открыть в браузере: http://127.0.0.1:80000)
+# Открыть в браузере: http://127.0.0.1:80000
