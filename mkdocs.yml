@@ -31,10 +31,10 @@ nav:
       - Спецификация OpenAPI: api/openapi.md
   - Docs-as-Code & ГОСТ:
       - ТЗ на Мониторинг (ГОСТ 19.201): docs-code/tz-gost19.md
-      - ПМИ (ГОСТ 19.301): docs-code/pmi-gost19.md
+      - ПМИ Тестирование (ГОСТ 19.301): docs-code/pmi-gost19.md
       - Архитектура C4 (Mermaid): docs-code/architecture.md
   - Промышленный домен:
       - АСУТП Затвора: industrial/valve-asutp.md
 
 repo_name: Aidar65/aidar-technical-writing
-repo_url: https://github.com/Aidar65/aidar-technical-writinging
+repo_url: https://github.com/Aidar65/aidar-technical-writingng
