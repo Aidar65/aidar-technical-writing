@@ -1,38 +1,47 @@
 # 🚀 Technical Writing & Docs-as-Code Portfolio | Айдар Ярмаков
 
-[![ci](https://github.com/Aidar65/aidar-technical-writing/actions/workflows/deploy.yml/badge.svg)](https://github.com/Aidar65/aidar-technical-writing/actions/workflows/deploy.yml)
-[![Documentation Pages](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://aidar65.github.io/aidar-technical-writing/)
+[![Deploy MkDocs](https://github.com/Aidar65/aidar-technical-writing/actions/workflows/deploy.yml/badge.svg)](https://github.com/Aidar65/aidar-technical-writing/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Публичный репозиторий с примерами системной и API-документации в подходе **Docs-as-Code**. 
+Публичный репозиторий с примерами системной и API-документации в подходе **Docs-as-Code**.
 
-🌐 **Опубликованная платформа:** [aidar65.github.io/aidar-technical-writing](https://aidar65.github.io/aidar-technical-writing/)
+🌐 **Live Demo:** [aidar65.github.io/aidar-technical-writing](https://aidar65.github.io/aidar-technical-writing)
 
 ---
 
-## 👤 Профиль кандидата
-* **Позиция:** Technical Content Engineer / Technical Writer (ГОСТ 19, ГОСТ 34, REST API).
-* **Специализация:** Документирование сложных инженерных и IT-систем, регуляторная дисциплина (ЗОКИИ / 187-ФЗ, Росатом, Минпромторг).
-* **Стек:** Git (GitHub/GitLab), Markdown, MkDocs (Material), OpenAPI 3.0 (Swagger), Mermaid.js, Pandoc, GitHub Actions CI/CD.
+## 👤 Обо мне
+
+**Technical Engineer** с 5+ годами опыта в документации для сложных программно-аппаратных комплексов и АСУТП.
+
+- **Масштаб:** 300+ процедур нормоконтроля в год, конфигурация данных на 3240 позиций (KKS-кодирование).
+- **Регуляторы:** Росатом (АЭС, класс безопасности 4), Минпромторг (ПП РФ №719/1875, СТ-1), работа с ЗОКИИ (187-ФЗ).
+- **Результат:** 100% прохождение аудитов без штрафов и замечаний. Экономия 800 тыс. ₽ на процедуре за счёт самостоятельной адаптации КД вместо аутсорса.
+- **Стек:** Git, Markdown, MkDocs (Material), OpenAPI 3.0, Mermaid.js, Pandoc, GitHub Actions.
+
+**Специализация:** Мостик между инженерным доменом (АСУТП, ТПА, IoT) и IT-документацией (REST API, ГОСТ 19/34, docs-as-code).
 
 ---
 
 ## 📂 Структура портфолио
 
-| Раздел | Формат / Стек | Описание кейса |
+| Раздел | Формат | Описание кейса |
 | :--- | :--- | :--- |
-| **[REST API Spec](https://aidar65.github.io/aidar-technical-writing/api/openapi/)** | OpenAPI 3.0 / YAML | Спецификация приема телеметрии и управления положением ТПА |
-| **[Архитектура C4](https://aidar65.github.io/aidar-technical-writing/docs-code/architecture/)** | Mermaid.js | Sequence diagram взаимодействия ПЛК, IoT Gateway и TimeSeries DB |
-| **[ТЗ ГОСТ 19.201](https://aidar65.github.io/aidar-technical-writing/docs-code/tz-gost19/)** | Markdown / ЕСПД | ТЗ на модуль шифрования и проверки УКЭП по требованиям ЗОКИИ (187-ФЗ) |
-| **[Промкейс АСУТП](https://aidar65.github.io/aidar-technical-writing/industrial/valve-asutp/)** | Markdown | Спецификация затвора DN100 PN25 и карта регистров Modbus RTU |
+| **[REST API Spec](docs/03-rest-api/openapi.yaml)** | OpenAPI 3.0 / YAML | Спецификация IoT-платформы: приём телеметрии с датчиков ТПА, управление положением затвора, вебхуки аварий |
+| **[Архитектура C4](docs/02-gost-34/architecture.md)** | Mermaid.js | Sequence diagram: ПЛК → IoT Gateway → TimeSeries DB → Grafana. Показать, как данные с поля попадают в дашборд |
+| **[ТЗ ГОСТ 19.201](docs/01-gost-19/TZ.md)** | Markdown / ЕСПД | ТЗ на модуль шифрования и проверки УКЭП по требованиям ЗОКИИ (187-ФЗ). Показать структуру ЕСПД на реальном кейсе |
+| **[Промкейс АСУТП](docs/04-industrial/asutp-valve.md)** | Markdown | Спецификация дискового затвора DN100 PN25 + карта регистров Modbus RTU. Показать, как я описываю железо |
 
 ---
 
 ## 🛠 Локальный запуск
+
 ```bash
 # Клонировать репозиторий
-git clone [https://github.com/Aidar65/aidar-technical-writing.git](https://github.com/Aidar65/aidar-technical-writing.git)
+git clone https://github.com/Aidar65/aidar-technical-writing.git
+cd aidar-technical-writing
 
 # Установить зависимости и запустить локальный сервер
 pip install mkdocs-material
 mkdocs serve
-# Открыть в браузере: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+# Открыть в браузере: http://127.0.0.1:80000)
