@@ -1,38 +1,40 @@
-name: ci
+site_name: Айдар Ярмаков | Technical Content Engineer
+site_url: https://aidar65.github.io/aidar-technical-writing/
 
-on:
-  push:
-    branches:
-      - main
-      - master
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: indigo
+  features:
+    - navigation.tabs
+    - content.code.copy
 
-permissions:
-  contents: write
+plugins:
+  - search
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: '!!python/name:pymdownx.superfences.fence_code_format'
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - tables
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.x
+nav:
+  - Главная: index.md
+  - REST API & Integration:
+      - Спецификация OpenAPI: api/openapi.md
+  - Docs-as-Code & ГОСТ:
+      - ТЗ на Мониторинг (ГОСТ 19.201): docs-code/tz-gost19.md
+      - ПМИ (ГОСТ 19.301): docs-code/pmi-gost19.md
+      - Архитектура C4 (Mermaid): docs-code/architecture.md
+  - Промышленный домен:
+      - АСУТП Затвора: industrial/valve-asutp.md
 
-      - name: Install dependencies
-        run: |
-          pip install mkdocs-material yamllint
-
-      - name: Lint YAML Configuration
-        run: |
-          yamllint -d "{rules: {line-length: disable, document-start: disable}}" mkdocs.yml .github/workflows/
-
-      - name: Lint Markdown Files
-        uses: avto-dev/markdown-lint-action@v1
-        with:
-          args: 'docs/'
-
-      - name: Build & Deploy Documentation
-        run: mkdocs gh-deploy --forcear-technical-writing
+repo_name: Aidar65/aidar-technical-writing
+repo_url: https://github.com/Aidar65/aidar-technical-writinging
