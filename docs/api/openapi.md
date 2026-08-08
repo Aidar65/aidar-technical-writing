@@ -51,6 +51,8 @@ paths:
                     status:
                       type: string
                       example: "OPEN"
+        '400':
+          description: Некорректное значение параметра PN
 
   /valves/{id}/telemetry:
     post:
