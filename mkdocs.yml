@@ -1,36 +1,41 @@
-site_name: Айдар Ярмаков | Technical Content Engineer
-site_url: https://aidar65.github.io/aidar-technical-writing/
+name: ci
 
-theme:
-  name: material
-  language: ru
-  palette:
-    scheme: slate
-    primary: indigo
-    accent: cyan
-  features:
-    - navigation.tabs
-    - navigation.sections
-    - content.code.copy
+on:
+  push:
+    branches:
+      - main
+      - master
 
-plugins:
-  - search
+permissions:
+  contents: write
 
-markdown_extensions:
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - tables
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-nav:
-  - Главная: index.md
-  - REST API & Integration:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          pip install mkdocs-material yamllint
+
+      - name: Lint YAML Configuration & OpenAPI Specs
+        run: |
+          yamllint mkdocs.yml .github/workflows/
+
+      - name: Lint Markdown Files
+        uses: avto-dev/markdown-lint-action@v1
+        with:
+          args: 'docs/'
+
+      - name: Build & Deploy Documentation
+        run: mkdocs gh-deploy --force
       - Спецификация OpenAPI: api/openapi.md
   - Docs-as-Code & ГОСТ:
       - ТЗ на Мониторинг (ГОСТ 19.201): docs-code/tz-gost19.md
