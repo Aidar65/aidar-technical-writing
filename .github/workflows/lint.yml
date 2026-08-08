@@ -1,0 +1,1 @@
+name: Docs Quality Control (Linter)`n`non:`n  push:`n    branches: [ main ]`n  pull_request:`n    branches: [ main ]`n`njobs:`n  markdown-lint:`n    runs-on: ubuntu-latest`n    steps:`n      - name: Checkout repository`n        uses: actions/checkout@v4`n`n      - name: Run markdownlint`n        uses: nosorn/markdownlint-action@v3`n        with:`n          path: 'docs'
