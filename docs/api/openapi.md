@@ -12,7 +12,7 @@ info:
   description: REST API сервиса сбора метрик и аварийного управления запорной арматурой.
 
 servers:
-  - url: [https://api.valves.telemetry/v1](https://api.valves.telemetry/v1)
+  - url: https://api.valves.telemetry/v1 https://api.valves.telemetry/v1
     description: Production Cluster (Cloud Layer)
 
 paths:
