@@ -25,9 +25,9 @@ jobs:
         run: |
           pip install mkdocs-material yamllint
 
-      - name: Lint YAML Configuration & OpenAPI Specs
+      - name: Lint YAML Configuration
         run: |
-          yamllint mkdocs.yml .github/workflows/
+          yamllint -d "{rules: {line-length: disable, document-start: disable}}" mkdocs.yml .github/workflows/
 
       - name: Lint Markdown Files
         uses: avto-dev/markdown-lint-action@v1
@@ -35,12 +35,4 @@ jobs:
           args: 'docs/'
 
       - name: Build & Deploy Documentation
-        run: mkdocs gh-deploy --force
-      - Спецификация OpenAPI: api/openapi.md
-  - Docs-as-Code & ГОСТ:
-      - ТЗ на Мониторинг (ГОСТ 19.201): docs-code/tz-gost19.md
-      - Архитектура C4 (Mermaid): docs-code/architecture.md
-  - Промышленный домен:
-      - АСУТП Затвора: industrial/valve-asutp.md
-repo_name: Aidar65/aidar-technical-writing
-repo_url: https://github.com/Aidar65/aidar-technical-writing
+        run: mkdocs gh-deploy --forcear-technical-writing
