@@ -1,0 +1,1 @@
+# Модуль защиты привода (CODESYS ST)`n`n```pascal`nFUNCTION_BLOCK FB_ValveTelemetry`nVAR_INPUT`n    rTorqueRaw : REAL; (* Момент на штоке, Нм *)`nEND_VAR`n`nIF rTorqueRaw > 250.0 THEN`n    stTelemetry.sStatus := 'TORQUE_FAULT';`nELSE`n    stTelemetry.sStatus := 'OK';`nEND_IF;`n```
