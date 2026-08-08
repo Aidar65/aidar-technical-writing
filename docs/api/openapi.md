@@ -1,6 +1,6 @@
 # Спецификация REST API: Сервис Телеметрии ТПА
 
-Полное описание интерфейсов взаимодействия с блоком управления электроприводов запорно-регулирующей арматуры (DN100 PN25).
+Полное описание REST API интерфейсов взаимодействия с блоком управления электроприводов запорно-регулирующей арматуры.
 
 ---
 
@@ -51,8 +51,6 @@ paths:
                     status:
                       type: string
                       example: "OPEN"
-        '400':
-          description: Некорректное значение параметра PN
 
   /valves/{id}/telemetry:
     post:
@@ -91,53 +89,13 @@ paths:
           description: Метрики успешно записаны в TimeSeries DB
         '400':
           description: Ошибка валидации параметров (RFC 7807)
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: "[https://api.valves.telemetry/errors/invalid-kks-format](https://api.valves.telemetry/errors/invalid-kks-format)"
-                  title:
-                    type: string
-                    example: "Invalid Parameter Format"
-                  status:
-                    type: integer
-                    example: 400
-                  detail:
-                    type: string
-                    example: "Значение KKS не соответствует стандарту."
         '500':
           description: Критическая аппаратная ошибка (Авария привода)
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: "[https://api.valves.telemetry/errors/hardware-fault](https://api.valves.telemetry/errors/hardware-fault)"
-                  title:
-                    type: string
-                    example: "Motor Overheat Detected"
-                  status:
-                    type: integer
-                    example: 500
-                  detail:
-                    type: string
-                    example: "Температура обмотки электродвигателя превысила предел 120°C."
 
-  /valves/{id}/emergency-close:
+  /batch-metrics:
     post:
-      summary: Аварийное перекрытие затвора (Emergency Cut-Off)
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-            example: "10LAA10AA001"
+      summary: Массовая загрузка метрик с группы приводов
+      description: Приём пачки измерений крутящего момента (Torque) для оптимизации сетевого трафика IoT Gateway.
       requestBody:
         required: true
         content:
@@ -145,17 +103,27 @@ paths:
             schema:
               type: object
               required:
-                - reason
-                - operator_id
+                - batch_id
+                - items
               properties:
-                reason:
+                batch_id:
                   type: string
-                  example: "Превышение момента Torque Fault > 250 Нм"
-                operator_id:
-                  type: string
-                  example: "USER-9921"
+                  example: "BATCH-9901"
+                items:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - kks
+                      - torque
+                    properties:
+                      kks:
+                        type: string
+                        example: "10LAA10AA001"
+                      torque:
+                        type: number
+                        format: float
+                        example: 120.4
       responses:
-        '200':
-          description: Команда на закрытие успешно отправлена в ПЛК
-        '409':
-          description: Привод заблокирован механически
+        '207':
+          description: Multi-Status. Пачка обработана частично или полностью.
