@@ -1,1 +1,11 @@
-site_name: Aidar Technical Writing Portfolio`n`ntheme:`n  name: material`n`nnav:`n  - Главная: index.md`n  - Безопасность: security/pki-tls.md`n  - Процессы (BPMN): processes/bpmn-telemetry.md`n  - Промышленный код: industrial/st-code-example.md`n  - REST API: api/overview.md
+п»їsite_name: Aidar Technical Writing Portfolio
+
+theme:
+  name: material
+
+nav:
+  - Р“Р»Р°РІРЅР°СЏ: index.md
+  - Р‘РµР·РѕРїР°СЃРЅРѕСЃС‚СЊ: security/pki-tls.md
+  - РџСЂРѕС†РµСЃСЃС‹ (BPMN): processes/bpmn-telemetry.md
+  - РџСЂРѕРјС‹С€Р»РµРЅРЅС‹Р№ РєРѕРґ: industrial/st-code-example.md
+  - REST API: api/overview.md

@@ -1,1 +1,17 @@
-# Интерактивная консоль REST API`n`nРаздел содержит OpenAPI-контракты для управления электроприводом затвора и сбора телеметрии.`n`n<script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-bundle.js"></script>`n<link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css" />`n`n<div id="swagger-ui"></div>`n`n<script>`nwindow.onload = function() {`n  SwaggerUIBundle({`n    url: "../v1/valve-control.yaml",`n    dom_id: "#swagger-ui",`n  });`n}`n</script>
+п»ї# РРЅС‚РµСЂР°РєС‚РёРІРЅР°СЏ РєРѕРЅСЃРѕР»СЊ REST API
+
+Р Р°Р·РґРµР» СЃРѕРґРµСЂР¶РёС‚ OpenAPI-РєРѕРЅС‚СЂР°РєС‚С‹ РґР»СЏ СѓРїСЂР°РІР»РµРЅРёСЏ СЌР»РµРєС‚СЂРѕРїСЂРёРІРѕРґРѕРј Р·Р°С‚РІРѕСЂР° Рё СЃР±РѕСЂР° С‚РµР»РµРјРµС‚СЂРёРё.
+
+<script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css" />
+
+<div id="swagger-ui"></div>
+
+<script>
+window.onload = function() {
+  SwaggerUIBundle({
+    url: "../v1/valve-control.yaml",
+    dom_id: "#swagger-ui",
+  });
+}
+</script>
