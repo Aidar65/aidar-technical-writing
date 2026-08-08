@@ -1,17 +1,28 @@
 # 🚀 Technical Writing & Docs-as-Code Portfolio | Айдар Ярмаков
 
 [![ci](https://github.com/Aidar65/aidar-technical-writing/actions/workflows/deploy.yml/badge.svg)](https://github.com/Aidar65/aidar-technical-writing/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 🌐 **Live Demo:** [aidar65.github.io/aidar-technical-writing](https://aidar65.github.io/aidar-technical-writing/)
 
 ---
 
 ## 👤 Обо мне
+
 **Technical Content Engineer** с 5+ годами опыта в документировании сложных программно-аппаратных комплексов (АСУТП, ТПА, ИСУЗ).
 
-* **Масштаб:** 300+ процедур нормоконтроля в год, конфигурация данных на **3240 позиций** (KKS-кодирование для Курской АЭС-2).
-* **Регуляторы:** Росатом (АЭС, класс безопасности 4), Минпромторг (ПП РФ №719/1875, СТ-1), ФСТЭК (ЗОКИИ / 187-ФЗ).
-* **Результат:** 100% прохождение аудитов без штрафов и замечаний. Экономия **800 тыс. руб. на процедуру** за счёт самостоятельной адаптации КД вместо аутсорса.
+- **Масштаб:** 300+ процедур нормоконтроля в год, конфигурация данных на **3240 позиций** (KKS-кодирование для Курской АЭС-2).
+- **Регуляторы:** Росатом (АЭС, класс безопасности 4), Минпромторг (ПП РФ №719/1875, СТ-1), ФСТЭК (ЗОКИИ / 187-ФЗ).
+- **Результат:** 100% прохождение аудитов без штрафов и замечаний. Экономия **800 тыс. руб. на процедуру** за счёт самостоятельной адаптации КД вместо аутсорса.
+
+**Специализация:** мостик между инженерным доменом (АСУТП, ТПА, IoT) и IT-документацией (REST API, ГОСТ 19/34, docs-as-code).
+
+---
+
+!!! note "NDA & Sandbox Disclaimer"
+    Данный репозиторий — публичный sandbox-полигон для отработки подходов **Docs-as-Code**.
+    
+    Основная рабочая документация (300+ ТУ, регламентов и паспортов в год для объектов АЭС, Росатома и Минпромторга) ведётся в закрытых корпоративных контурах под NDA. Представленные кейсы обезличены и адаптированы для демонстрации ИТ-стека.
 
 ---
 
@@ -30,7 +41,8 @@
 ## 🛠 Быстрый запуск локально
 
 ```bash
-git clone [https://github.com/Aidar65/aidar-technical-writing.git](https://github.com/Aidar65/aidar-technical-writing.git)
+git clone https://github.com/Aidar65/aidar-technical-writing.git
 cd aidar-technical-writing
 pip install -r requirements.txt
 mkdocs serve
+# Открыть в браузере: http://127.0.0.1:8000
