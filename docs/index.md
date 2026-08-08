@@ -24,3 +24,5 @@
 * **Markup & SSG:** Markdown, MkDocs Material Theme
 * **API Notation:** OpenAPI 3.0 (Swagger YAML)
 * **Diagrams-as-Code:** Mermaid.js
+* **API Notation:** OpenAPI 3.0 (Swagger YAML)
+* **Diagrams-as-Code:** Mermaid.js
