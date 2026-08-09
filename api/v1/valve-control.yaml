@@ -1,0 +1,119 @@
+openapi: 3.0.3
+info:
+  title: Valve Control API
+  version: 1.0.0
+  description: REST API РґР»СЏ СѓРїСЂР°РІР»РµРЅРёСЏ СЌР»РµРєС‚СЂРѕРїСЂРёРІРѕРґР°РјРё Рё СЃС‡РёС‚С‹РІР°РЅРёСЏ С‚РµР»РµРјРµС‚СЂРёРё Р·Р°РїРѕСЂРЅРѕ-СЂРµРіСѓР»РёСЂСѓСЋС‰РµР№ Р°СЂРјР°С‚СѓСЂС‹ (РўРџРђ).
+
+security:
+  - BearerAuth: []
+
+paths:
+  /api/v1/valves/{id}/position:
+    post:
+      summary: РР·РјРµРЅРµРЅРёРµ РїРѕР»РѕР¶РµРЅРёСЏ Р·Р°С‚РІРѕСЂР° Р°СЂРјР°С‚СѓСЂС‹
+      operationId: setValvePosition
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: РЈРЅРёРєР°Р»СЊРЅС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РўРџРђ (РЅР°РїСЂРёРјРµСЂ, `valve-dn100-01`)
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - target_position
+              properties:
+                target_position:
+                  type: integer
+                  minimum: 0
+                  maximum: 100
+                  example: 100
+      responses:
+        '200':
+          description: РљРѕРјР°РЅРґР° СѓСЃРїРµС€РЅРѕ РїСЂРёРЅСЏС‚Р° РєРѕРЅС‚СЂРѕР»Р»РµСЂРѕРј
+        '401':
+          description: РћС‚СЃСѓС‚СЃС‚РІСѓРµС‚ РёР»Рё РЅРµРґРµР№СЃС‚РІРёС‚РµР»РµРЅ JWT-С‚РѕРєРµРЅ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '400':
+          description: РћС€РёР±РєР° РїР°СЂР°РјРµС‚СЂРѕРІ Р·Р°РїСЂРѕСЃР°
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/valves/{id}/status:
+    get:
+      summary: РџРѕР»СѓС‡РµРЅРёРµ С‚РµР»РµРјРµС‚СЂРёРё Рё СЃРѕСЃС‚РѕСЏРЅРёСЏ РєРѕРЅС†РµРІС‹С… РІС‹РєР»СЋС‡Р°С‚РµР»РµР№ РўРџРђ
+      operationId: getValveStatus
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: РЈРЅРёРєР°Р»СЊРЅС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РўРџРђ (РЅР°РїСЂРёРјРµСЂ, `valve-dn100-01`)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: РђРєС‚СѓР°Р»СЊРЅРѕРµ СЃРѕСЃС‚РѕСЏРЅРёРµ РїСЂРёРІРѕРґР° Рё РєРѕРЅС†РµРІРёРєРѕРІ
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - valve_id
+                  - position_percent
+                  - is_closed
+                  - is_open
+                  - torque_nm
+                properties:
+                  valve_id:
+                    type: string
+                    example: "valve-dn100-01"
+                  position_percent:
+                    type: integer
+                    minimum: 0
+                    maximum: 100
+                    example: 45
+                  is_closed:
+                    type: boolean
+                    example: false
+                  is_open:
+                    type: boolean
+                    example: false
+                  torque_nm:
+                    type: number
+                    format: float
+                    example: 120.5
+        '401':
+          description: РћС‚СЃСѓС‚СЃС‚РІСѓРµС‚ РёР»Рё РЅРµРґРµР№СЃС‚РІРёС‚РµР»РµРЅ JWT-С‚РѕРєРµРЅ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: РђРІС‚РѕСЂРёР·Р°С†РёСЏ РђРЎРЈ РўРџ Р’РµСЂС…РЅРµРіРѕ РЈСЂРѕРІРЅСЏ С‡РµСЂРµР· JWT-С‚РѕРєРµРЅ
+
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error_code:
+          type: string
+          example: "INVALID_POSITION"
+        message:
+          type: string
+          example: "Target position must be between 0 and 100"
