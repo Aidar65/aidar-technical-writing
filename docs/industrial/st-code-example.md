@@ -1,1 +1,21 @@
-# ������ ������ ������� (CODESYS ST)`n`n```pascal`nFUNCTION_BLOCK FB_ValveTelemetry`nVAR_INPUT`n    rTorqueRaw : REAL; (* ������ �� �����, �� *)`nEND_VAR`n`nIF rTorqueRaw > 250.0 THEN`n    stTelemetry.sStatus := 'TORQUE_FAULT';`nELSE`n    stTelemetry.sStatus := 'OK';`nEND_IF;`n```
+# Документирование модуля защиты ТПА (CODESYS ST)
+
+Реализация программной блокировки электропривода при превышении крутящего момента по ГОСТ 33260.
+
+```pascal
+FUNCTION_BLOCK FB_ValveTorqueProtection
+VAR_INPUT
+    rCurrentTorque : REAL; // Текущий крутящий момент (Нм)
+    rMaxTorque     : REAL; // Предельный допуск по ТУ (Нм)
+    bEmergencyStop : BOOL; // Аварийная кнопка
+END_VAR
+VAR_OUTPUT
+    bTripAlarm     : BOOL; // Сигнал отсечки привода
+END_VAR
+
+IF (rCurrentTorque >= rMaxTorque) OR bEmergencyStop THEN
+    bTripAlarm := TRUE;
+ELSE
+    bTripAlarm := FALSE;
+END_IF;
+END_FUNCTION_BLOCK
