@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ValveStatusResponse",
+  "type": "object",
+  "required": [
+    "valve_id",
+    "status",
+    "position_percent",
+    "sensors",
+    "torque_nm",
+    "timestamp"
+  ],
+  "properties": {
+    "valve_id": {
+      "type": "string",
+      "example": "VALVE-DN100-PN16-01",
+      "description": "Заводской идентификатор ТПА"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["OPEN", "CLOSED", "PARTIALLY_OPEN", "FAULT"],
+      "example": "PARTIALLY_OPEN"
+    },
+    "position_percent": {
+      "type": "number",
+      "format": "float",
+      "example": 50.0,
+      "description": "Текущий ход затвора в процентах (0-100)"
+    },
+    "sensors": {
+      "type": "object",
+      "required": ["is_open", "is_closed"],
+      "properties": {
+        "is_open": { "type": "boolean", "example": false },
+        "is_closed": { "type": "boolean", "example": false }
+      }
+    },
+    "torque_nm": {
+      "type": "number",
+      "example": 85.2,
+      "description": "Текущий крутящий момент на штоке (Нм)"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2026-08-09T08:00:00Z"
+    }
+  },
+  "additionalProperties": false
+}
