@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Valve Control API
   version: 1.0.0
-  description: REST API управления электроприводами и считывания телеметрии запорно-регулирующей арматуры (ТПА).
+  description: REST API для управления электроприводами и считывания телеметрии запорно-регулирующей арматуры (ТПА).
 
 security:
   - BearerAuth: []
@@ -105,7 +105,7 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
-      description: "Авторизация АСУ ТП Верхнего Уровня через JWT-токен"
+      description: Авторизация АСУ ТП Верхнего Уровня через JWT-токен
 
   schemas:
     ErrorResponse:
@@ -117,4 +117,3 @@ components:
         message:
           type: string
           example: "Target position must be between 0 and 100"
-          
