@@ -19,3 +19,4 @@ ELSE
     bTripAlarm := FALSE;
 END_IF;
 END_FUNCTION_BLOCK
+

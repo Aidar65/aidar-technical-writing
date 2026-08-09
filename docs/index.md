@@ -27,5 +27,5 @@
 ## 📞 Контакты
 
 * **Email:** <jaarmakov@bk.ru>
-* **Telegram:** [@aidar_yarmakov](https://t.me/aidar_yarmakov)
+* **Telegram:** [@aidar_yarmakov](https://t.me/ambassador_ru)
 * **GitHub:** [Aidar65](https://github.com/Aidar65)
