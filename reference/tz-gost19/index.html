@@ -10,13 +10,13 @@
         <meta name="author" content="Aidar Yarmakov">
       
       
-        <link rel="canonical" href="https://aidar65.github.io/aidar-technical-writing/industrial/st-code-example/">
+        <link rel="canonical" href="https://aidar65.github.io/aidar-technical-writing/reference/tz-gost19/">
       
       
-        <link rel="prev" href="../../api/overview/">
+        <link rel="prev" href="../tz-gost34/">
       
       
-        <link rel="next" href="../../api/openapi/">
+        <link rel="next" href="../asyncapi.yaml">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Управление приводом (ST/CODESYS) - Aidar Yarmakov | Tech Content Engineer</title>
+        <title>ТЗ на ПО (ГОСТ 19.201) - Aidar Yarmakov | Tech Content Engineer</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#structured-text-iec-61131-3" class="md-skip">
+        <a href="#19201-78" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Управление приводом (ST/CODESYS)
+              ТЗ на ПО (ГОСТ 19.201)
             
           </span>
         </div>
@@ -321,8 +321,6 @@
       
   
   
-    
-  
   
   
     
@@ -335,11 +333,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -360,7 +360,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -375,37 +375,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Управление приводом (ST/CODESYS)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../industrial/st-code-example/" class="md-nav__link">
         
   
   
@@ -421,37 +394,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#plc_prg" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        💻 Исходный код блока управления (PLC_PRG)
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -468,8 +410,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -480,13 +424,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -507,7 +449,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -581,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tz-gost34/" class="md-nav__link">
+      <a href="../tz-gost34/" class="md-nav__link">
         
   
   
@@ -606,10 +548,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../reference/tz-gost19/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ТЗ на ПО (ГОСТ 19.201)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -625,6 +594,104 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        На программу автоматической калибровки концевых выключателей
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="На программу автоматической калибровки концевых выключателей">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#19201-01-valve-calib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ШИФР: ЕСПД.19201-01-VALVE-CALIB
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ВВЕДЕНИЕ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. ТРЕБОВАНИЯ К ПРОГРАММЕ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. ТРЕБОВАНИЯ К ПРОГРАММЕ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Требования к функциональным характеристикам
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Требования к программной и аппаратной совместимости
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -637,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/asyncapi.yaml" class="md-nav__link">
+      <a href="../asyncapi.yaml" class="md-nav__link">
         
   
   
@@ -837,13 +904,80 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#plc_prg" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        💻 Исходный код блока управления (PLC_PRG)
+        На программу автоматической калибровки концевых выключателей
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="На программу автоматической калибровки концевых выключателей">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#19201-01-valve-calib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ШИФР: ЕСПД.19201-01-VALVE-CALIB
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ВВЕДЕНИЕ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. ТРЕБОВАНИЯ К ПРОГРАММЕ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. ТРЕБОВАНИЯ К ПРОГРАММЕ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Требования к функциональным характеристикам
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Требования к программной и аппаратной совместимости
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -864,22 +998,27 @@
 
 
 
-<h1 id="structured-text-iec-61131-3">Управление приводом ТПА на языке Structured Text (IEC 61131-3)</h1>
-<p>Программа для ПЛК (CODESYS v3.5) по обработке концевых выключателей и защите двигателя привода от перегрузки по моменту.</p>
+<h1 id="19201-78">ТЕХНИЧЕСКОЕ ЗАДАНИЕ (ГОСТ 19.201-78)</h1>
+<h2 id="_1">На программу автоматической калибровки концевых выключателей</h2>
+<h3 id="19201-01-valve-calib">ШИФР: ЕСПД.19201-01-VALVE-CALIB</h3>
 <hr />
-<h2 id="plc_prg">💻 Исходный код блока управления (PLC_PRG)</h2>
-<p>```iecst
-PROGRAM PLC_PRG
-VAR
-    bLimitSwitchOpen  : BOOL; (<em> Концевик ОТКРЫТО </em>)
-    bLimitSwitchClose : BOOL; (<em> Концевик ЗАКРЫТО </em>)
-    rTorqueSensor     : REAL; (<em> Момент на штоке (Нм) </em>)
-    bMotorEnable      : BOOL; (<em> Питание пускателя </em>)
-END_VAR</p>
-<p>// Защита по крутящему моменту (&gt; 180 Нм — отсечка)
-IF rTorqueSensor &gt; 180.0 THEN
-    bMotorEnable := FALSE;
-END_IF;</p>
+<h2 id="1">1. ВВЕДЕНИЕ</h2>
+<p>Настоящее Техническое задание распространяется на программное обеспечение <strong>ValveCalibService</strong> (далее — Программа).</p>
+<p>Программа предназначена для сервисного обслуживания и автоматической установки токовых нулей концевых выключателей и датчиков момента электроприводов ТПА.</p>
+<hr />
+<h2 id="2">2. ТРЕБОВАНИЯ К ПРОГРАММЕ</h2>
+<h3 id="21">2.1. Требования к функциональным характеристикам</h3>
+<ol>
+<li>Программа должна обеспечивать пошаговый вывод затвора в крайние положения «Открыто» / «Закрыто».</li>
+<li>Программа должна считывать сырые значения регистров Modbus RTU и вычислять калибровочные коэффициенты.</li>
+<li>Программа должна записывать итоговые константы в энергонезависимую память EEPROM контроллера привода.</li>
+</ol>
+<h3 id="22">2.2. Требования к программной и аппаратной совместимости</h3>
+<ul>
+<li><strong>Операционная система:</strong> Linux (Astra Linux / Ubuntu 22.04 LTS).</li>
+<li><strong>Язык разработки:</strong> Python 3.11+.</li>
+<li><strong>Аппаратные интерфейсы:</strong> Адаптер USB-RS485 (протокол Modbus RTU, baudrate 9600-115200).</li>
+</ul>
 
 
 
