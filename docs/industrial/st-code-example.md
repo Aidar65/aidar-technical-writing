@@ -1,22 +1,21 @@
-# Р”РѕРєСѓРјРµРЅС‚РёСЂРѕРІР°РЅРёРµ РјРѕРґСѓР»СЏ Р·Р°С‰РёС‚С‹ РўРџРђ (CODESYS ST)
+# Управление приводом ТПА на языке Structured Text (IEC 61131-3)
 
-Р РµР°Р»РёР·Р°С†РёСЏ РїСЂРѕРіСЂР°РјРјРЅРѕР№ Р±Р»РѕРєРёСЂРѕРІРєРё СЌР»РµРєС‚СЂРѕРїСЂРёРІРѕРґР° РїСЂРё РїСЂРµРІС‹С€РµРЅРёРё РєСЂСѓС‚СЏС‰РµРіРѕ РјРѕРјРµРЅС‚Р° РїРѕ Р“РћРЎРў 33260.
+Программа для ПЛК (CODESYS v3.5) по обработке концевых выключателей и защите двигателя привода от перегрузки по моменту.
 
-```pascal
-FUNCTION_BLOCK FB_ValveTorqueProtection
-VAR_INPUT
-    rCurrentTorque : REAL; // РўРµРєСѓС‰РёР№ РєСЂСѓС‚СЏС‰РёР№ РјРѕРјРµРЅС‚ (РќРј)
-    rMaxTorque     : REAL; // РџСЂРµРґРµР»СЊРЅС‹Р№ РґРѕРїСѓСЃРє РїРѕ РўРЈ (РќРј)
-    bEmergencyStop : BOOL; // РђРІР°СЂРёР№РЅР°СЏ РєРЅРѕРїРєР°
+---
+
+## 💻 Исходный код блока управления (PLC_PRG)
+
+```iecst
+PROGRAM PLC_PRG
+VAR
+    bLimitSwitchOpen  : BOOL; (* Концевик ОТКРЫТО *)
+    bLimitSwitchClose : BOOL; (* Концевик ЗАКРЫТО *)
+    rTorqueSensor     : REAL; (* Момент на штоке (Нм) *)
+    bMotorEnable      : BOOL; (* Питание пускателя *)
 END_VAR
-VAR_OUTPUT
-    bTripAlarm     : BOOL; // РЎРёРіРЅР°Р» РѕС‚СЃРµС‡РєРё РїСЂРёРІРѕРґР°
-END_VAR
 
-IF (rCurrentTorque >= rMaxTorque) OR bEmergencyStop THEN
-    bTripAlarm := TRUE;
-ELSE
-    bTripAlarm := FALSE;
+// Защита по крутящему моменту (> 180 Нм — отсечка)
+IF rTorqueSensor > 180.0 THEN
+    bMotorEnable := FALSE;
 END_IF;
-END_FUNCTION_BLOCK
-
