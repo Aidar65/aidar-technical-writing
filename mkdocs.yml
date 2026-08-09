@@ -1,11 +1,35 @@
-site_name: Aidar Technical Writing Portfolio
+site_name: Aidar Yarmakov | Tech Content Engineer
+site_url: https://aidar65.github.io/aidar-technical-writing/
+site_author: Aidar Yarmakov
 
 theme:
   name: material
+  language: ru
+  palette:
+    primary: indigo
+    accent: indigo
+  features:
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+
+plugins:
+  - search
 
 nav:
-  - Главная: index.md
-  - Безопасность: security/pki-tls.md
-  - Процессы (BPMN): processes/bpmn-telemetry.md
-  - Промышленный код: industrial/st-code-example.md
-  - REST API: api/overview.md
+  - 🏠 Главная: index.md
+  - 📚 Tutorials (Быстрый старт):
+      - Интеграция Valve API: api/overview.md
+  - 🔧 How-to Guides (Инструкции):
+      - Управление приводом (ST/CODESYS): industrial/st-code-example.md
+  - 📖 Reference (Справочники и API):
+      - REST API (OpenAPI 3.0): api/openapi.md
+      - Спецификация Valve Control: api/v1/valve-control.yaml
+      - ТЗ АСУ ТП (ГОСТ 34.602): reference/tz-gost34.md
+      - ТЗ на ПО (ГОСТ 19.201): reference/tz-gost19.md
+      - Спецификация AsyncAPI 2.6: reference/asyncapi.yaml
+      - Архитектурный паспорт ТПА: docs-code/architecture.md
+  - 💡 Explanation (Концепции):
+      - Телеметрия ТПА (Sequence Diagram): processes/bpmn-telemetry.md
+      - Безопасность и PKI/TLS (187-ФЗ): security/pki-tls.md
+      
