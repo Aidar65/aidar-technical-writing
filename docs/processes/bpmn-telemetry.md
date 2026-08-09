@@ -1,22 +1,24 @@
-# Р РµРіР»Р°РјРµРЅС‚ РїРµСЂРµРґР°С‡Рё С‚РµР»РµРјРµС‚СЂРёРё РўРџРђ
+# Архитектура передачи телеметрии с электропривода
 
-Р”РѕРєСѓРјРµРЅС‚ РѕРїРёСЃС‹РІР°РµС‚ СЃРєРІРѕР·РЅРѕР№ РїСЂРѕС†РµСЃСЃ РѕРїСЂРѕСЃР° РґР°С‚С‡РёРєРѕРІ РїРѕР»РѕР¶РµРЅРёСЏ Р·Р°С‚РІРѕСЂР° Рё РєСЂСѓС‚СЏС‰РµРіРѕ РјРѕРјРµРЅС‚Р° СЌР»РµРєС‚СЂРѕРїСЂРёРІРѕРґР° Р°СЂРјР°С‚СѓСЂС‹ СЃРѕ СЃС‚РѕСЂРѕРЅС‹ РђРЎРЈ РўРџ Р’РµСЂС…РЅРµРіРѕ РЈСЂРѕРІРЅСЏ.
+Модуль сбора метрик позиционирования и состояния запорной арматуры (DN100, PN25).
 
-## РџРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЏ (Sequence Diagram)
+---
+
+## Sequence Diagram (Взаимодействие)
 
 ```mermaid
 sequenceDiagram
     autonumber
-    participant SCADA as РђРЎРЈ РўРџ (SCADA)
-    participant API as Valve Control API
-    participant PLC as РџР›Рљ (CODESYS)
-    participant Actuator as Р­Р»РµРєС‚СЂРѕРїСЂРёРІРѕРґ (Р‘РљР’/Р”Рў)
+    participant Valve as Электропривод (DN100)
+    participant Controller as ПЛК (Modbus RTU)
+    participant Gateway as IoT Gateway (MQTT)
+    participant API as Backend API (REST)
+    participant DB as TimescaleDB
 
-    SCADA->>API: GET /api/v1/valves/valve-dn100-01/status
-    Note over API: Р’Р°Р»РёРґР°С†РёСЏ JWT-С‚РѕРєРµРЅР° РґРѕСЃС‚СѓРїР°
-    API->>PLC: Р—Р°РїСЂРѕСЃ Modbus RTU (Read Holding Registers)
-    PLC->>Actuator: РЎС‡РёС‚С‹РІР°РЅРёРµ СЃРёРіРЅР°Р»РѕРІ 4-20 РјРђ / РєРѕРЅС†РµРІРёРєРѕРІ
-    Actuator-->>PLC: Р”Р°РЅРЅС‹Рµ РїРѕР»РѕР¶РµРЅРёСЏ (45%) Рё РјРѕРјРµРЅС‚Р° (120.5 РќРј)
-    PLC-->>API: РћС‚РІРµС‚ Modbus (СЃС‹СЂС‹Рµ СЂРµРіРёСЃС‚СЂС‹)
-    API-->>SCADA: 200 OK (JSON СЃ РїР°СЂР°РјРµС‚СЂР°РјРё РўРџРђ)
+    Valve->>Controller: Аналоговый сигнал (4-20 мА / Положение 100%)
+    Controller->>Gateway: Modbus Register 40001 (Status: OPEN)
+    Gateway->>API: POST /api/v1/valves/10LAA10AA001/telemetry (JSON)
+    Note over API: Валидация схемы JSON и HMAC
+    API->>DB: INSERT INTO valve_metrics
+    API-->>Gateway: 201 Created
     
