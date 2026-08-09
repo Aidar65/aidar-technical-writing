@@ -31,3 +31,4 @@ sequenceDiagram
     Gateway->>API: POST /api/v1/valves/telemetry
     API-->>Gateway: 201 Created
     
+    

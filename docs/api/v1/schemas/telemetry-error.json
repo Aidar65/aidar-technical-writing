@@ -1,0 +1,34 @@
+{
+  "$schema": "[http://json-schema.org/draft-07/schema#](http://json-schema.org/draft-07/schema#)",
+  "title": "TorqueLimitExceededError",
+  "type": "object",
+  "required": [
+    "error_code",
+    "current_torque_nm",
+    "max_allowed_torque_nm",
+    "action_taken"
+  ],
+  "properties": {
+    "error_code": {
+      "type": "string",
+      "enum": ["ERR_TORQUE_EXCEEDED"],
+      "example": "ERR_TORQUE_EXCEEDED"
+    },
+    "current_torque_nm": {
+      "type": "number",
+      "example": 195.4,
+      "description": "Текущий момент на штоке задвижки (Нм)"
+    },
+    "max_allowed_torque_nm": {
+      "type": "number",
+      "example": 180.0,
+      "description": "Предельный момент по паспорту ТПА"
+    },
+    "action_taken": {
+      "type": "string",
+      "example": "MOTOR_POWER_CUTOFF",
+      "description": "Автоматическая отсечка питания привода ПЛК"
+    }
+  },
+  "additionalProperties": false
+}
