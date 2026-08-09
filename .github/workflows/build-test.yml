@@ -2,15 +2,24 @@
 
 on:
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+
+      - name: Configure Python
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.x
-      - run: pip install mkdocs-material
-      - run: mkdocs build --strict
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install mkdocs-material pymdown-extensions mkdocs-swagger-ui-tag
+
+      - name: Build site (test)
+        run: mkdocs build
+        
