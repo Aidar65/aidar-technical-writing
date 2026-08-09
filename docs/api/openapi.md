@@ -1,4 +1,4 @@
-# Спецификация REST API: Сервис Телеметрии ТПА
+# РЎРїРµС†РёС„РёРєР°С†РёСЏ REST API: РЎРµСЂРІРёСЃ РўРµР»РµРјРµС‚СЂРёРё РўРџРђ
 
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css">
 <div id="swagger-ui"></div>

@@ -1,4 +1,4 @@
-﻿name: MkDocs Strict Build Test
+name: MkDocs Strict Build Test
 
 on:
   pull_request:
