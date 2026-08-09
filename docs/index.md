@@ -1,31 +1,36 @@
-# Welcome to Docs-as-Code Portfolio | РђР№РґР°СЂ РЇСЂРјР°РєРѕРІ
+# Aidar | Tech Content Engineer & API Documentarian
 
-Р”Р°РЅРЅР°СЏ РїР»Р°С‚С„РѕСЂРјР° вЂ” РґРµРјРѕРЅСЃС‚СЂР°С†РёРѕРЅРЅС‹Р№ СЃС‚РµРЅРґ РїРѕ РґРѕРєСѓРјРµРЅС‚РёСЂРѕРІР°РЅРёСЋ СЃР»РѕР¶РЅС‹С… РёРЅР¶РµРЅРµСЂРЅС‹С… Рё IT-СЃРёСЃС‚РµРј РІ РїР°СЂР°РґРёРіРјРµ **Docs-as-Code**.
-
-!!! note "NDA & Sandbox Disclaimer"
-    Р”Р°РЅРЅС‹Р№ СЂРµРїРѕР·РёС‚РѕСЂРёР№ СЏРІР»СЏРµС‚СЃСЏ РїСѓР±Р»РёС‡РЅС‹Рј sandbox-РїРѕР»РёРіРѕРЅРѕРј РґР»СЏ РѕС‚СЂР°Р±РѕС‚РєРё РїРѕРґС…РѕРґРѕРІ **Docs-as-Code**.
-
-    РћСЃРЅРѕРІРЅР°СЏ СЂР°Р±РѕС‡Р°СЏ РґРѕРєСѓРјРµРЅС‚Р°С†РёСЏ РІРµРґСЏС‚СЃСЏ РІ Р·Р°РєСЂС‹С‚С‹С… РєРѕСЂРїРѕСЂР°С‚РёРІРЅС‹С… РєРѕРЅС‚СѓСЂР°С… РїРѕРґ NDA. РџСЂРµРґСЃС‚Р°РІР»РµРЅРЅС‹Рµ РєРµР№СЃС‹ РѕР±РµР·Р»РёС‡РµРЅС‹ Рё Р°РґР°РїС‚РёСЂРѕРІР°РЅС‹ РґР»СЏ РґРµРјРѕРЅСЃС‚СЂР°С†РёРё IT-СЃС‚РµРєР°.
+Портфолио инженера технической документации. Специализация: **Docs-as-Code**, **REST API (OpenAPI 3.0)**, **DocOps / CI/CD** и стандартизация сложных инженерных систем (АСУ ТП / ТПА).
 
 ---
 
-## рџ‘¤ РџСЂРѕС„РёР»СЊ Рё РєР»СЋС‡РµРІС‹Рµ РјРµС‚СЂРёРєРё
+## 🚀 Архитектура и стек портфолио
 
-**Technical Content Engineer / Technical Writer** СЃ РѕРїС‹С‚РѕРј СЃС‚Р°РЅРґР°СЂС‚РёР·Р°С†РёРё Рё РґРѕРєСѓРјРµРЅС‚РёСЂРѕРІР°РЅРёСЏ СЃР»РѕР¶РЅС‹С… РїСЂРѕРіСЂР°РјРјРЅРѕ-Р°РїРїР°СЂР°С‚РЅС‹С… РєРѕРјРїР»РµРєСЃРѕРІ (РђРЎРЈ РўРџ, РўРџРђ, РРЎРЈР­).
+Данный портал документации собран и обслуживается по методологии **Docs-as-Code**:
+
+* **Архитектура знаний:** Фреймворк [Diátaxis](https://diataxis.fr/) (Tutorials, How-to, Reference, Explanation).
+* **Сборка и SSG:** MkDocs (Material Theme) + `mkdocs-swagger-ui-tag`.
+* **Качество и линтинг (Quality Gate):** 
+  * `markdownlint` — контроль синтаксиса и форматирования Markdown.
+  * `Vale` — автоматизированный нормативно-стилистический контроль прозы и глоссария.
+* **Спецификации API:** OpenAPI 3.0 (YAML/JSON) с интерактивным Swagger UI.
+* **Диаграммы как код:** Mermaid.js (Sequence & Flowchart diagrams).
+* **CI/CD Пайплайны:** GitHub Actions (автоматическое тестирование веток в PR, валидация кодировок UTF-8 и автодеплой на GitHub Pages).
 
 ---
 
-## рџ›  РўРµС…РЅРѕР»РѕРіРёС‡РµСЃРєРёР№ СЃС‚РµРє
+## 📚 Разделы документации
 
-* **Source Control & CI/CD:** Git (GitHub Actions)
-* **Markup & SSG:** Markdown, MkDocs Material Theme
-* **API Notation:** OpenAPI 3.0 (Swagger YAML)
-* **Diagrams-as-Code:** Mermaid.js
+| Раздел (Diátaxis) | Содержание | Технологии |
+| :--- | :--- | :--- |
+| **📚 Tutorials** | Быстрый старт и интеграция системы управления ТПА | REST API, JSON |
+| **🔧 How-to Guides** | Промышленный код управления приводом (CODESYS/ST) | Structured Text, Modbus |
+| **📖 Reference** | Спецификация `Valve Control API v1.0` | OpenAPI 3.0, YAML |
+| **💡 Explanation** | Сквозной регламент передачи телеметрии и считывания концевиков | Mermaid.js, Sequence Diagram |
 
 ---
 
-## рџ“ћ РљРѕРЅС‚Р°РєС‚С‹
+## 🛠 Контакты и репозиторий
 
-* **Email:** <jaarmakov@bk.ru>
-* **Telegram:** [@aidar_yarmakov](https://t.me/ambassador_ru)
-* **GitHub:** [Aidar65](https://github.com/Aidar65)
+* **GitHub Repository:** [Aidar65/aidar-technical-writing](https://github.com/Aidar65/aidar-technical-writing)
+* **Версия релиза:** `v1.1.0` (ведение истории по [Keep a Changelog](https://keepachangelog.com/))
