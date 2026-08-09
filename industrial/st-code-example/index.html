@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#codesys-st" class="md-skip">
+        <a href="#structured-text-iec-61131-3" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -387,6 +387,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Управление приводом (ST/CODESYS)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -403,6 +421,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#plc_prg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Исходный код блока управления (PLC_PRG)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -782,6 +830,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#plc_prg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Исходный код блока управления (PLC_PRG)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -797,24 +864,22 @@
 
 
 
-<h1 id="codesys-st">Р”РѕРєСѓРјРµРЅС‚РёСЂРѕРІР°РЅРёРµ РјРѕРґСѓР»СЏ Р·Р°С‰РёС‚С‹ РўРџРђ (CODESYS ST)</h1>
-<p>Р РµР°Р»РёР·Р°С†РёСЏ РїСЂРѕРіСЂР°РјРјРЅРѕР№ Р±Р»РѕРєРёСЂРѕРІРєРё СЌР»РµРєС‚СЂРѕРїСЂРёРІРѕРґР° РїСЂРё РїСЂРµРІС‹С€РµРЅРёРё РєСЂСѓС‚СЏС‰РµРіРѕ РјРѕРјРµРЅС‚Р° РїРѕ Р“РћРЎРў 33260.</p>
-<p>```pascal
-FUNCTION_BLOCK FB_ValveTorqueProtection
-VAR_INPUT
-    rCurrentTorque : REAL; // РўРµРєСѓС‰РёР№ РєСЂСѓС‚СЏС‰РёР№ РјРѕРјРµРЅС‚ (РќРј)
-    rMaxTorque     : REAL; // РџСЂРµРґРµР»СЊРЅС‹Р№ РґРѕРїСѓСЃРє РїРѕ РўРЈ (РќРј)
-    bEmergencyStop : BOOL; // РђРІР°СЂРёР№РЅР°СЏ РєРЅРѕРїРєР°
-END_VAR
-VAR_OUTPUT
-    bTripAlarm     : BOOL; // РЎРёРіРЅР°Р» РѕС‚СЃРµС‡РєРё РїСЂРёРІРѕРґР°
+<h1 id="structured-text-iec-61131-3">Управление приводом ТПА на языке Structured Text (IEC 61131-3)</h1>
+<p>Программа для ПЛК (CODESYS v3.5) по обработке концевых выключателей и защите двигателя привода от перегрузки по моменту.</p>
+<hr />
+<h2 id="plc_prg">💻 Исходный код блока управления (PLC_PRG)</h2>
+<p>```iecst
+PROGRAM PLC_PRG
+VAR
+    bLimitSwitchOpen  : BOOL; (<em> Концевик ОТКРЫТО </em>)
+    bLimitSwitchClose : BOOL; (<em> Концевик ЗАКРЫТО </em>)
+    rTorqueSensor     : REAL; (<em> Момент на штоке (Нм) </em>)
+    bMotorEnable      : BOOL; (<em> Питание пускателя </em>)
 END_VAR</p>
-<p>IF (rCurrentTorque &gt;= rMaxTorque) OR bEmergencyStop THEN
-    bTripAlarm := TRUE;
-ELSE
-    bTripAlarm := FALSE;
-END_IF;
-END_FUNCTION_BLOCK</p>
+<p>// Защита по крутящему моменту (&gt; 180 Нм — отсечка)
+IF rTorqueSensor &gt; 180.0 THEN
+    bMotorEnable := FALSE;
+END_IF;</p>
 
 
 

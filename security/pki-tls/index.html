@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mtls-pki-iot-nn-187-nn-1-x509-v3n-root-ca-n-device-certificate-nn-2-ocsp-staplingn-ocsp-stapling-rfc-6066-crl-15" class="md-skip">
+        <a href="#mtls-pki-iot-" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -731,6 +731,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Безопасность и PKI/TLS (187-ФЗ)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -747,6 +765,47 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-x509-v3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Архитектура сертификатов (X.509 v3)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ocsp-stapling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Валидация (OCSP Stapling)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -780,6 +839,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-x509-v3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Архитектура сертификатов (X.509 v3)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ocsp-stapling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Валидация (OCSP Stapling)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -795,7 +884,17 @@
 
 
 
-<h1 id="mtls-pki-iot-nn-187-nn-1-x509-v3n-root-ca-n-device-certificate-nn-2-ocsp-staplingn-ocsp-stapling-rfc-6066-crl-15">Спецификация mTLS и PKI для IoT-шлюза ТПА<code>n</code>nВзаимодействие между электроприводом затвора и облачным контуром АСУТП (187-ФЗ).<code>n</code>n## 1. Архитектура сертификатов (X.509 v3)<code>n* **Root CA:** Корпоративный Удостоверяющий Центр.</code>n<em> </em><em>Device Certificate:</em>* Выпускается на ПЛК при первичной калибровке.<code>n</code>n## 2. Валидация (OCSP Stapling)`nШлюз передает статус валидности через OCSP Stapling (RFC 6066). Обновление списков отзыва (CRL) — каждые 15 минут.</h1>
+<h1 id="mtls-pki-iot-">Спецификация mTLS и PKI для IoT-шлюза ТПА</h1>
+<p>Взаимодействие между электроприводом затвора и облачным контуром АСУ ТП (187-ФЗ ЗОКИИ).</p>
+<hr />
+<h2 id="1-x509-v3">1. Архитектура сертификатов (X.509 v3)</h2>
+<ul>
+<li><strong>Root CA:</strong> Корпоративный Удостоверяющий Центр (Offline).</li>
+<li><strong>Device Certificate:</strong> Выпускается на ПЛК при первичной калибровке на заводе-изготовителе.</li>
+</ul>
+<hr />
+<h2 id="2-ocsp-stapling">2. Валидация (OCSP Stapling)</h2>
+<p>Шлюз передает статус валидности через OCSP Stapling (RFC 6066). Обновление списков отзыва (CRL) — каждые 15 минут.</p>
 
 
 

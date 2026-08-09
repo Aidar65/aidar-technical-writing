@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rest-api" class="md-skip">
+        <a href="#valve-control-api" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -298,6 +298,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Интеграция Valve API
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -314,6 +332,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Базовый поток интеграции
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -782,6 +830,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Базовый поток интеграции
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -797,13 +864,15 @@
 
 
 
-<h1 id="rest-api">Интерактивная спецификация REST API</h1>
-<p>Раздел содержит OpenAPI-контракты для управления электроприводами ТПА и сбора телеметрии.</p>
-<p><code>yaml
-swagger: "2.0"
-info:
-  title: Valve Control API
-  version: "1.1.0"</code></p>
+<h1 id="valve-control-api">Интеграция Valve Control API</h1>
+<p>Быстрый старт по работе с REST API модуля управления запорно-регулирующей арматурой (ТПА).</p>
+<hr />
+<h2 id="_1">🚀 Базовый поток интеграции</h2>
+<ol>
+<li>Запросите текущее состояние затвора через GET /api/v1/valves/{id}/status.</li>
+<li>Проверьте флаги концевых выключателей (is_open, is_closed).</li>
+<li>При необходимости отправьте управляющий импульс на электропривод.</li>
+</ol>
 
 
 
