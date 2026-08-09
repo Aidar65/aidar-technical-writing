@@ -32,5 +32,6 @@
 
 ## 🛠 Контакты и репозиторий
 
+* **Telegram:** [@Ambassador_ru](https://t.me/Ambassador_ru)
 * **GitHub Repository:** [Aidar65/aidar-technical-writing](https://github.com/Aidar65/aidar-technical-writing)
 * **Версия релиза:** `v1.1.0` (ведение истории по [Keep a Changelog](https://keepachangelog.com/))
