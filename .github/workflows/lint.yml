@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: nosorn/markdownlint-action@v3
+      - uses: DavidAnson/markdownlint-cli2-action@v19
         with:
-          path: 'docs'
+          globs: 'docs/**/*.md'
           config: '.markdownlint.json'
           
