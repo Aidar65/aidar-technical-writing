@@ -28,7 +28,9 @@ extra_javascript:
   - https://unpkg.com/mermaid@10/dist/mermaid.min.js
 
 nav:
-  - 🏠 Главная: index.md
+  - 🏠 Главная:
+      - Обзор: index.md
+      - 📋 Changelog: changelog.md
   - 🤖 AI-assisted Workflow: ai-workflow.md
   - 💼 Практические кейсы:
       - Реверс-инжиниринг для Курской АЭС-2: cases/reverse-engineering-npp.md
