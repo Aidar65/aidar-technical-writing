@@ -24,6 +24,9 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+
 nav:
   - 🏠 Главная: index.md
   - 🤖 AI-assisted Workflow: ai-workflow.md
@@ -36,11 +39,9 @@ nav:
       - Управление приводом (ST/CODESYS): industrial/st-code-example.md
   - 📖 Reference (Справочники и API):
       - REST API (OpenAPI 3.0): api/openapi.md
-      - Спецификация Valve Control: api/v1/valve-control.yaml
       - ТЗ АСУ ТП (ГОСТ 34.602): reference/tz-gost34.md
       - ТЗ на ПО (ГОСТ 19.201): reference/tz-gost19.md
       - Спецификация AsyncAPI 2.6: reference/asyncapi.yaml
-      - Архитектурный паспорт ТПА: docs-code/architecture.md
   - 💡 Explanation (Концепции):
       - Телеметрия ТПА (Sequence Diagram): processes/bpmn-telemetry.md
       - Безопасность и PKI/TLS (187-ФЗ): security/pki-tls.md

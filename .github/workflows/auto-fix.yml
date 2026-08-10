@@ -17,4 +17,3 @@ jobs:
         run: pip install mkdocs-material
       - name: Strict Build Check
         run: mkdocs build --strict
-        

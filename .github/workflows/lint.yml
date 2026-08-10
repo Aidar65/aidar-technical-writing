@@ -15,4 +15,3 @@ jobs:
         with:
           globs: 'docs/**/*.md'
           config: '.markdownlint.json'
-          
