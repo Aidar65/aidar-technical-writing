@@ -58,3 +58,4 @@ channels:
               type: string
               enum: [OPEN, CLOSE, STOP]
               example: OPEN
+              
