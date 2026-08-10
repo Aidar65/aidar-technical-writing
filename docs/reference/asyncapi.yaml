@@ -3,8 +3,7 @@ info:
   title: Valve MQTT API
   version: 1.2.0
   description: >-
-    MQTT-каналы приёма телеметрии и передачи команд
-    на электроприводы запорной арматуры.
+    MQTT-каналы приёма телеметрии и передачи команд на электроприводы запорной арматуры.
 channels:
   valves/{valveId}/telemetry:
     description: Поток телеметрии с электропривода (положение, концевики, момент)
@@ -40,22 +39,3 @@ channels:
               type: number
               format: float
               example: 120.0
-  valves/{valveId}/commands:
-    description: Канал команд на электропривод
-    parameters:
-      valveId:
-        schema:
-          type: string
-    publish:
-      operationId: sendValveCommand
-      summary: Отправка управляющей команды
-      message:
-        payload:
-          type: object
-          required: [command]
-          properties:
-            command:
-              type: string
-              enum: [OPEN, CLOSE, STOP]
-              example: OPEN
-              
