@@ -11,6 +11,7 @@ paths:
         - name: id
           in: path
           required: true
+          description: Инвентарный или KKS-код арматуры
           schema:
             type: string
             example: "01JNA10AA001"
@@ -30,4 +31,6 @@ paths:
       responses:
         '202':
           description: Команда принята к исполнению приводом
+        '400':
+          description: Некорректная команда управления
           
