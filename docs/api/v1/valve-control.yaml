@@ -1,54 +1,33 @@
 openapi: 3.0.3
 info:
-  title: Valve Telemetry & Control API
-  version: 1.2.0
-  description: REST API спецификация модуля управления запорно-регулирующей арматурой и считывания концевых выключателей.
-
-servers:
-  - url: https://api.valves.telemetry/v1
-    description: Production Cluster (Cloud Layer)
-
+  title: Valve Control API
+  version: 1.0.0
+  description: Управление запорно-регулирующей арматурой (ТПА) по протоколу HTTP/REST
 paths:
-  /valves/{id}/status:
-    get:
-      summary: Получение текущего статуса и телеметрии задвижки
-      operationId: getValveStatus
+  /api/v1/valves/{id}/control:
+    post:
+      summary: Отправить команду на привод задвижки
       parameters:
         - name: id
           in: path
           required: true
-          description: Идентификатор ТПА (например, valve-dn100-01)
           schema:
             type: string
+            example: "01JNA10AA001"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - command
+              properties:
+                command:
+                  type: string
+                  enum: [OPEN, CLOSE, STOP]
+                  example: "OPEN"
       responses:
-        '200':
-          description: Успешный ответ с метриками положения затвора
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValveStatus'
-
-components:
-  schemas:
-    ValveStatus:
-      type: object
-      required:
-        - valve_id
-        - position_percent
-        - is_open
-        - is_closed
-      properties:
-        valve_id:
-          type: string
-          example: "valve-dn100-01"
-        position_percent:
-          type: number
-          format: float
-          example: 45.5
-        is_open:
-          type: boolean
-          example: false
-        is_closed:
-          type: boolean
-          example: false
+        '202':
+          description: Команда принята к исполнению приводом
           
