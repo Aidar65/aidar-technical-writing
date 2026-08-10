@@ -1,124 +1,37 @@
 openapi: 3.0.3
 info:
-  title: Valve Telemetry & Control API
+  title: Valve Control API
   version: 1.2.0
-  description: REST API СЃРµСЂРІРёСЃР° СЃР±РѕСЂР° РјРµС‚СЂРёРє Рё Р°РІР°СЂРёР№РЅРѕРіРѕ СѓРїСЂР°РІР»РµРЅРёСЏ Р·Р°РїРѕСЂРЅРѕР№ Р°СЂРјР°С‚СѓСЂРѕР№.
-
-servers:
-  - url: https://api.valves.telemetry/v1
-    description: Production Cluster (Cloud Layer)
-
+  description: >-
+    REST API дистанционного управления запорно-регулирующей арматурой (ТПА):
+    команды открытия/закрытия и экстренной остановки (Fail-Safe).
 paths:
-  /valves:
-    get:
-      summary: РџРѕР»СѓС‡РµРЅРёРµ СЃРїРёСЃРєР° Р·Р°РїРѕСЂРЅРѕР№ Р°СЂРјР°С‚СѓСЂС‹
-      description: Р’РѕР·РІСЂР°С‰Р°РµС‚ РјР°СЃСЃРёРІ РўРџРђ СЃ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊСЋ С„РёР»СЊС‚СЂР°С†РёРё РїРѕ РЅРѕРјРёРЅР°Р»СЊРЅРѕРјСѓ РґР°РІР»РµРЅРёСЋ (PN).
-      parameters:
-        - name: pn
-          in: query
-          required: false
-          description: Р¤РёР»СЊС‚СЂ РїРѕ РЅРѕРјРёРЅР°Р»СЊРЅРѕРјСѓ РґР°РІР»РµРЅРёСЋ РІ Р±Р°СЂР°С… (РєРіСЃ/СЃРјВІ)
-          schema:
-            type: integer
-            enum: [16, 25, 40, 63, 100]
-            example: 25
-      responses:
-        '200':
-          description: РЈСЃРїРµС€РЅС‹Р№ РІРѕР·РІСЂР°С‚ СЃРїРёСЃРєР° РўРџРђ
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    kks_code:
-                      type: string
-                      example: "10LAA10AA001"
-                    dn:
-                      type: integer
-                      example: 100
-                    pn:
-                      type: integer
-                      example: 25
-                    status:
-                      type: string
-                      example: "OPEN"
-        '400':
-          description: РќРµРєРѕСЂСЂРµРєС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РїР°СЂР°РјРµС‚СЂР° PN
-
-  /valves/{id}/telemetry:
+  /api/v1/valves/{id}/control:
     post:
-      summary: РџРµСЂРµРґР°С‡Р° С‚РµР»РµРјРµС‚СЂРёРё СЃ СЌР»РµРєС‚СЂРѕРїСЂРёРІРѕРґР°
+      summary: Отправить управляющую команду на электропривод затвора
+      operationId: sendValveCommand
       parameters:
         - name: id
           in: path
           required: true
-          description: KKS-РєРѕРґ Р°СЂРјР°С‚СѓСЂС‹
+          description: Идентификатор арматуры в кодировке KKS (например, 01JNA10AA001)
           schema:
             type: string
-            example: "10LAA10AA001"
+            example: "01JNA10AA001"
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
-              required:
-                - timestamp
-                - position_percent
-                - torque_nm
+              required: [command]
               properties:
-                timestamp:
+                command:
                   type: string
-                  format: date-time
-                  example: "2026-08-08T12:00:00Z"
-                position_percent:
-                  type: number
-                  example: 45.5
-                torque_nm:
-                  type: number
-                  example: 120.4
+                  enum: [OPEN, CLOSE, STOP]
+                  example: "OPEN"
       responses:
-        '201':
-          description: РњРµС‚СЂРёРєРё СѓСЃРїРµС€РЅРѕ Р·Р°РїРёСЃР°РЅС‹ РІ TimeSeries DB
-        '400':
-          description: РћС€РёР±РєР° РІР°Р»РёРґР°С†РёРё РїР°СЂР°РјРµС‚СЂРѕРІ (RFC 7807)
-        '500':
-          description: РљСЂРёС‚РёС‡РµСЃРєР°СЏ Р°РїРїР°СЂР°С‚РЅР°СЏ РѕС€РёР±РєР° (РђРІР°СЂРёСЏ РїСЂРёРІРѕРґР°)
-
-  /batch-metrics:
-    post:
-      summary: РњР°СЃСЃРѕРІР°СЏ Р·Р°РіСЂСѓР·РєР° РјРµС‚СЂРёРє СЃ РіСЂСѓРїРїС‹ РїСЂРёРІРѕРґРѕРІ
-      description: РџСЂРёС‘Рј РїР°С‡РєРё РёР·РјРµСЂРµРЅРёР№ РєСЂСѓС‚СЏС‰РµРіРѕ РјРѕРјРµРЅС‚Р° (Torque) РґР»СЏ РѕРїС‚РёРјРёР·Р°С†РёРё СЃРµС‚РµРІРѕРіРѕ С‚СЂР°С„РёРєР° IoT Gateway.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - batch_id
-                - items
-              properties:
-                batch_id:
-                  type: string
-                  example: "BATCH-9901"
-                items:
-                  type: array
-                  items:
-                    type: object
-                    required:
-                      - kks
-                      - torque
-                    properties:
-                      kks:
-                        type: string
-                        example: "10LAA10AA001"
-                      torque:
-                        type: number
-                        format: float
-                        example: 120.4
-      responses:
-        '207':
-          description: Multi-Status. РџР°С‡РєР° РѕР±СЂР°Р±РѕС‚Р°РЅР° С‡Р°СЃС‚РёС‡РЅРѕ РёР»Рё РїРѕР»РЅРѕСЃС‚СЊСЋ.
+        "202":
+          description: Команда принята в исполнение, подтверждение — по телеметрии
+        "400":
+          description: Некорректная команда или нарушение схемы запроса

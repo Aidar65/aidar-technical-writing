@@ -1,5 +1,60 @@
 asyncapi: 2.6.0
 info:
   title: Valve MQTT API
-  version: 1.0.0
-channels: {}
+  version: 1.2.0
+  description: >-
+    MQTT-каналы приёма телеметрии и передачи команд
+    на электроприводы запорной арматуры.
+channels:
+  valves/{valveId}/telemetry:
+    description: Поток телеметрии с электропривода (положение, концевики, момент)
+    parameters:
+      valveId:
+        description: Идентификатор арматуры в кодировке KKS
+        schema:
+          type: string
+          example: 01JNA10AA001
+    subscribe:
+      operationId: onValveTelemetry
+      summary: Подписка на телеметрию затвора
+      message:
+        contentType: application/json
+        payload:
+          type: object
+          required: [valve_id, position_percent, is_open, is_closed]
+          properties:
+            valve_id:
+              type: string
+              example: 01JNA10AA001
+            position_percent:
+              type: number
+              format: float
+              example: 45.5
+            is_open:
+              type: boolean
+              example: false
+            is_closed:
+              type: boolean
+              example: false
+            torque_nm:
+              type: number
+              format: float
+              example: 120.0
+  valves/{valveId}/commands:
+    description: Канал команд на электропривод
+    parameters:
+      valveId:
+        schema:
+          type: string
+    publish:
+      operationId: sendValveCommand
+      summary: Отправка управляющей команды
+      message:
+        payload:
+          type: object
+          required: [command]
+          properties:
+            command:
+              type: string
+              enum: [OPEN, CLOSE, STOP]
+              example: OPEN

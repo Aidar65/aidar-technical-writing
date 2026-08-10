@@ -25,10 +25,8 @@ sequenceDiagram
     participant Controller as ПЛК (Modbus RTU)
     participant Gateway as IoT Gateway (MQTT)
     participant API as Backend API (REST)
-
-    Valve->>Controller: Токовый сигнал (4-20 мА)
+    Valve->>Controller: Токовый сигнал (4-20 mA)
     Controller->>Gateway: Реестр Modbus 40001 (OPEN)
-    Gateway->>API: POST /api/v1/valves/telemetry
+    Gateway->>API: POST /valves/telemetry
     API-->>Gateway: 201 Created
-    
-    
+```

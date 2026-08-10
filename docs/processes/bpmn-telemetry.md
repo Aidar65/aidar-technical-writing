@@ -14,11 +14,10 @@ sequenceDiagram
     participant Gateway as IoT Gateway (MQTT)
     participant API as Backend API (REST)
     participant DB as TimescaleDB
-
-    Valve->>Controller: Аналоговый сигнал (4-20 мА / Положение 100%)
+    Valve->>Controller: Аналоговый сигнал (4-20 mA / Положение 100%)
     Controller->>Gateway: Modbus Register 40001 (Status: OPEN)
-    Gateway->>API: POST /api/v1/valves/10LAA10AA001/telemetry (JSON)
+    Gateway->>API: POST /valves/telemetry (JSON)
     Note over API: Валидация схемы JSON и HMAC
     API->>DB: INSERT INTO valve_metrics
     API-->>Gateway: 201 Created
-    
+```
