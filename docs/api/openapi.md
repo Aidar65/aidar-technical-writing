@@ -24,6 +24,7 @@
 ### Пример запроса статуса (cURL)
 
 ```bash
-curl -X GET "[https://api.factory.int/api/v1/valves/VALVE-DN100-PN16-01/status](https://api.factory.int/api/v1/valves/VALVE-DN100-PN16-01/status)" \
-     -H "Authorization: Bearer <TOKEN>" \
-     -H "Accept: application/json"
+curl -X GET "https://api.factory.int/api/v1/valves/VALVE-DN100-PN16-01/status" \
+  -H "Authorization: Bearer <token>" \
+  -H "Accept: application/json"
+```
