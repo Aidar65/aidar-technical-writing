@@ -1,6 +1,6 @@
 site_name: Aidar Yarmakov | Tech Content Engineer
 site_url: https://aidar65.github.io/aidar-technical-writing/
-site_author: Aidar Yarmakov
+site_description: Technical Content Engineer Portfolio — Docs-as-Code, OpenAPI, GOST, CI/CD
 
 theme:
   name: material
@@ -9,15 +9,24 @@ theme:
     primary: indigo
     accent: indigo
   features:
+    - navigation.indexes
     - navigation.sections
-    - navigation.expand
     - content.code.copy
 
-plugins:
-  - search
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.def_list
 
 nav:
   - 🏠 Главная: index.md
+  - 🤖 AI-assisted Workflow: ai-workflow.md
+  - 💼 Практические кейсы:
+      - Реверс-инжиниринг для Курской АЭС-2: cases/reverse-engineering-npp.md
+      - Комплекс поставок и Compliance (Росатом / ПРОРЫВ): enterprise-contracts-cases.md
   - 📚 Tutorials (Быстрый старт):
       - Интеграция Valve API: api/overview.md
   - 🔧 How-to Guides (Инструкции):
@@ -32,4 +41,3 @@ nav:
   - 💡 Explanation (Концепции):
       - Телеметрия ТПА (Sequence Diagram): processes/bpmn-telemetry.md
       - Безопасность и PKI/TLS (187-ФЗ): security/pki-tls.md
-      
