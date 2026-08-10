@@ -14,12 +14,15 @@ theme:
     - content.code.copy
 
 markdown_extensions:
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.def_list
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
 nav:
   - 🏠 Главная: index.md
