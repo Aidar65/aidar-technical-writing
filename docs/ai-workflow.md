@@ -8,3 +8,4 @@ graph TD
     B -->|Черновик MD| C[Aider / VS Code]
     C -->|Ревью и Нормоконтроль| D[Technical Writer]
     D -->|Pull Request| E[Git Repository / CI Pipeline]
+
