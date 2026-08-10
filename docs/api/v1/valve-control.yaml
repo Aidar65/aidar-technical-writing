@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Valve Control API
-  version: 1.0.0
+  version: 1.2.0
   description: Управление запорно-регулирующей арматурой (ТПА) по протоколу HTTP/REST
 paths:
   /api/v1/valves/{id}/control:
@@ -33,4 +33,3 @@ paths:
           description: Команда принята к исполнению приводом
         '400':
           description: Некорректная команда управления
-          
