@@ -1,38 +1,18 @@
-# Aidar | Tech Content Engineer & API Documentarian
+> 🎯 **Live Demo:** https://aidar65.github.io/aidar-technical-writing/
+> 📩 **Контакты:** Telegram [@aidar_yarmakov](https://t.me/ambassador_ru) | jaarmakov@bk.ru
 
-Портфолио инженера технической документации. Специализация: **Docs-as-Code**, **REST API (OpenAPI 3.0)**, **DocOps / CI/CD** и стандартизация сложных инженерных систем (АСУ ТП / ТПА).
+## 📊 Ключевые показатели
 
----
+| Метрика | Значение |
+| :--- | :--- |
+| Контракты под управлением | **70+ млн ₽** (Росатом: Курская АЭС-2, БРЕСТ-ОД-300) |
+| Позиций в конфигурации данных | **3 240** (KKS, ЕОС-Качество, ЕОНКОМ) |
+| Процедур нормоконтроля в год | **300+** (ТУ, ТЗ, ПМИ, РЭ по ГОСТ 19/34, ЕСКД, СТО Росатома) |
+| Экономия на локализации КД | **до 800 000 ₽** за процедуру (КНР → ЕСКД/РФ без внешнего КБ) |
+| Регуляторные проверки | **100%** без замечаний (ПДК ВК, Минпромторг ПП РФ № 719/1875) |
 
-## 🚀 Архитектура и стек портфолио
+> 🔒 **NDA Disclaimer:** репозиторий — публичный sandbox-портфолио. Основная документация ведётся в закрытых контурах под NDA; кейсы обезличены.
 
-Данный портал документации собран и обслуживается по методологии **Docs-as-Code**:
+## 🤖 AI-assisted Docs (локальный стек)
 
-* **Архитектура знаний:** Фреймворк [Diátaxis](https://diataxis.fr/) (Tutorials, How-to, Reference, Explanation).
-* **Сборка и SSG:** MkDocs (Material Theme) + `mkdocs-swagger-ui-tag`.
-* **Качество и линтинг (Quality Gate):** 
-  * `markdownlint` — контроль синтаксиса и форматирования Markdown.
-  * `Vale` — автоматизированный нормативно-стилистический контроль прозы и глоссария.
-* **Спецификации API:** OpenAPI 3.0 (YAML/JSON) с интерактивным Swagger UI.
-* **Диаграммы как код:** Mermaid.js (Sequence & Flowchart diagrams).
-* **CI/CD Пайплайны:** GitHub Actions (автоматическое тестирование веток в PR, валидация кодировок UTF-8 и автодеплой на GitHub Pages).
-
----
-
-## 📚 Разделы документации
-
-| Раздел (Diátaxis) | Содержание | Технологии |
-| :--- | :--- | :--- |
-| **📚 Tutorials** | Быстрый старт и интеграция системы управления ТПА | REST API, JSON |
-| **🔧 How-to Guides** | Промышленный код управления приводом (CODESYS/ST) | Structured Text, Modbus |
-| **📖 Reference** | Спецификация `Valve Control API v1.0` | OpenAPI 3.0, YAML |
-| **💡 Explanation** | Сквозной регламент передачи телеметрии и считывания концевиков | Mermaid.js, Sequence Diagram |
-
----
-
-## 🛠 Контакты и репозиторий
-
-* **Telegram:** [@Ambassador_ru](https://t.me/Ambassador_ru)
-* **GitHub Repository:** [Aidar65/aidar-technical-writing](https://github.com/Aidar65/aidar-technical-writing)
-* **Версия релиза:** `v1.1.0` (ведение истории по [Keep a Changelog](https://keepachangelog.com/))
-ы
+Черновики документации генерирую локально: **Ollama + Qwen2.5-Coder + Aider** — данные не покидают периметр (применимо для NDA и ЗОКИИ / 187-ФЗ). Человек в цикле: архитектура, нормоконтроль, верификация.
