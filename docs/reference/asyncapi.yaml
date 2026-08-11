@@ -2,21 +2,21 @@ asyncapi: 2.6.0
 info:
   title: Valve MQTT API
   version: 1.2.0
-  description: MQTT-каналы приёма телеметрии и передачи команд на электроприводы запорной арматуры.
+  description: MQTT channels for receiving telemetry and sending commands to valve actuators.
 
 channels:
   valves/{valve_id}/telemetry:
-    description: Поток телеметрии с электропривода (положение, концевики, крутящий момент).
+    description: Telemetry stream from the actuator (position, limit switches, torque).
     parameters:
       valve_id:
-        description: Идентификатор арматуры в кодировке KKS.
+        description: Valve identifier in KKS encoding.
         schema:
           type: string
           pattern: '^[0-9]{2}[A-Z]{3}[0-9]{2}[A-Z]{2}[0-9]{3}$'
           example: 01JNA10AA001
     subscribe:
       operationId: onValveTelemetry
-      summary: Подписка на телеметрию арматуры
+      summary: Subscribe to valve telemetry
       message:
         contentType: application/json
         payload:
@@ -31,35 +31,35 @@ channels:
               format: float
               minimum: 0
               maximum: 100
-              description: Степень открытия затвора в процентах.
+              description: Valve opening degree in percent.
               example: 45.5
             is_open:
               type: boolean
-              description: Сигнал концевого выключателя открытого положения (КВО).
+              description: Limit switch signal for fully open position.
               example: false
             is_closed:
               type: boolean
-              description: Сигнал концевого выключателя закрытого положения (КВЗ).
+              description: Limit switch signal for fully closed position.
               example: false
             torque_nm:
               type: number
               format: float
               minimum: 0
-              description: Текущий крутящий момент на штоке, Н·м.
+              description: Current torque on the stem, Nm.
               example: 120.0
 
   valves/{valve_id}/command:
-    description: Канал отправки команд управления на электропривод.
+    description: Control command channel for the valve actuator.
     parameters:
       valve_id:
-        description: Идентификатор арматуры в кодировке KKS.
+        description: Valve identifier in KKS encoding.
         schema:
           type: string
           pattern: '^[0-9]{2}[A-Z]{3}[0-9]{2}[A-Z]{2}[0-9]{3}$'
           example: 01JNA10AA001
     publish:
       operationId: sendValveCommand
-      summary: Отправка команды управления на арматуру
+      summary: Send control command to the valve
       message:
         contentType: application/json
         payload:
@@ -73,13 +73,12 @@ channels:
                 - OPEN
                 - CLOSE
                 - STOP
-              description: Команда для управляющего органа.
+              description: Command for the actuator.
               example: OPEN
             target_position:
               type: number
               format: float
               minimum: 0
               maximum: 100
-              description: Целевое положение затвора в процентах (для регулирующей арматуры).
+              description: Target valve position in percent (for control valves).
               example: 50.0
-              
