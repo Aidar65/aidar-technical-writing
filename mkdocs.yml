@@ -1,4 +1,4 @@
-site_name: Aidar Yarmakov | Tech Content Engineer
+site_name: 'Aidar Yarmakov | Docs-as-Code & Architecture'
 site_url: https://aidar65.github.io/aidar-technical-writing/
 site_description: Technical Content Engineer Portfolio — Docs-as-Code, OpenAPI, GOST, CI/CD
 
@@ -28,22 +28,11 @@ extra_javascript:
   - https://unpkg.com/mermaid@10/dist/mermaid.min.js
 
 nav:
-  - 🏠 Главная:
-      - Обзор: index.md
-      - 📋 Changelog: changelog.md
-  - 🤖 AI-assisted Workflow: ai-workflow.md
-  - 💼 Практические кейсы:
-      - Реверс-инжиниринг для Курской АЭС-2: cases/reverse-engineering-npp.md
-      - Комплекс поставок и Compliance (Росатом / ПРОРЫВ): enterprise-contracts-cases.md
-  - 📚 Tutorials (Быстрый старт):
-      - Интеграция Valve API: api/overview.md
-  - 🔧 How-to Guides (Инструкции):
-      - Управление приводом (ST/CODESYS): industrial/st-code-example.md
-  - 📖 Reference (Справочники и API):
-      - REST API (OpenAPI 3.0): api/openapi.md
-      - ТЗ АСУ ТП (ГОСТ 34.602): reference/tz-gost34.md
-      - ТЗ на ПО (ГОСТ 19.201): reference/tz-gost19.md
-      - Спецификация AsyncAPI 2.6: reference/asyncapi.yaml
-  - 💡 Explanation (Концепции):
-      - Телеметрия ТПА (Sequence Diagram): processes/bpmn-telemetry.md
-      - Безопасность и PKI/TLS (187-ФЗ): security/pki-tls.md
+  - Главная: index.md
+  - Техническое писательство:
+      - Развертывание оператора: technical-writing/how-to/k8s-operator-deploy.md
+      - AI Doc Pipeline: technical-writing/explanation/ai-doc-pipeline.md
+  - Системный анализ:
+      - ЧТЗ Телеметрии (ГОСТ 34): system-analysis/gost-34/chtz-telemetry.md
+      - Контракты API: system-analysis/integrations/openapi-spec.yaml
+      - Sequence диаграммы: system-analysis/models/auth-flow.puml
