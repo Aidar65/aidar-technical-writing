@@ -1,0 +1,140 @@
+openapi: 3.0.3
+info:
+  title: Enterprise Token Authentication & Certificate Verification Service API
+  description: REST API specification for Token Authentication and Mutual TLS (mTLS) Certificate Verification in Enterprise Environments.
+  version: 1.0.0
+paths:
+  /api/v1/auth/token:
+    post:
+      summary: Issue JWT Token for authenticated client
+      operationId: issueToken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthRequest'
+      responses:
+        '200':
+          description: Token issued successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/ForbiddenError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /api/v1/certs/verify:
+    post:
+      summary: Verify mTLS Client Certificate validity
+      operationId: verifyCertificate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CertVerifyRequest'
+      responses:
+        '200':
+          description: Certificate verified successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CertVerifyResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/ForbiddenError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+components:
+  responses:
+    UnauthorizedError:
+      description: Unauthorized - Invalid credentials or signature
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    ForbiddenError:
+      description: Forbidden - Access denied or certificate revoked
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    InternalServerError:
+      description: Internal Server Error - Unexpected system fault
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+  schemas:
+    AuthRequest:
+      type: object
+      required:
+        - client_id
+        - client_secret
+      properties:
+        client_id:
+          type: string
+          example: service-telemetry-agent
+        client_secret:
+          type: string
+          format: password
+          example: SecretKey123!
+    TokenResponse:
+      type: object
+      required:
+        - access_token
+        - token_type
+        - expires_in
+      properties:
+        access_token:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+        token_type:
+          type: string
+          example: Bearer
+        expires_in:
+          type: integer
+          example: 3600
+    CertVerifyRequest:
+      type: object
+      required:
+        - certificate_pem
+      properties:
+        certificate_pem:
+          type: string
+          example: "-----BEGIN CERTIFICATE-----\nMIICXzCCAgegAwIBAgI..."
+    CertVerifyResponse:
+      type: object
+      required:
+        - is_valid
+        - serial_number
+      properties:
+        is_valid:
+          type: boolean
+          example: true
+        serial_number:
+          type: string
+          example: "7F:9A:12:34:56:78"
+        issuer:
+          type: string
+          example: "CN=Enterprise Root CA"
+    ErrorResponse:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: AUTH_FAILED
+        message:
+          type: string
+          example: Invalid credentials or expired token

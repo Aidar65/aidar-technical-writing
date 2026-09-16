@@ -1,0 +1,16 @@
+@startuml auth-flow
+!theme plain
+autonumber
+actor "Client / Edge Agent" as Client
+participant "API Gateway / NGINX" as Gateway
+participant "Auth Service" as Auth
+participant "Cert Authority / PKI" as PKI
+
+Client -> Gateway: 1. TLS Handshake with Client Cert (mTLS)
+Gateway -> PKI: 2. Verify Client Certificate against CRL/OCSP
+PKI --> Gateway: 3. Certificate Valid Response
+Gateway -> Auth: 4. POST /api/v1/auth/token (client_id, secret)
+Auth -> Auth: 5. Authenticate Credentials & Issue JWT
+Auth --> Gateway: 6. 200 OK (access_token, expires_in)
+Gateway --> Client: 7. JWT Bearer Token Response
+@enduml
