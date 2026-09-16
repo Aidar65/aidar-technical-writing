@@ -1,6 +1,8 @@
-# Развертывание и управление оператором itcacmistio в Kubernetes
+# Развертывание и управление оператором acm-operator-demo в Kubernetes
 
-Настоящее руководство предоставляет пошаговые инструкции по подготовке среды, развертыванию через Helm 3 и проверке работоспособности оператора `itcacmistio` в кластере Kubernetes согласно принципам фреймворка **Diátaxis** (категория **How-To**).
+> Примечание о конфиденциальности: Настоящий документ представляет собой синтетический учебный кейс по мотивам открытых стандартов; все наименования сервисов, пространств имен и сетевые адреса вымышлены.
+
+Настоящее руководство предоставляет пошаговые инструкции по подготовке среды, развертыванию через Helm 3 и проверке работоспособности оператора `acm-operator-demo` в кластере Kubernetes согласно принципам фреймворка **Diátaxis** (категория **How-To**).
 
 ---
 
@@ -8,9 +10,10 @@
 
 Перед началом установки убедитесь, что соблюдены следующие условия:
 
-- Запущенный кластер Kubernetes (версия `1.26` и выше).
+- Запущенный кластер Kubernetes (`prod-cluster-1`, версия `1.26` и выше).
 - Утилита `kubectl` с правами администратора кластера (`cluster-admin`).
 - Установленный пакетный менеджер **Helm v3** (версия `3.10+`).
+- Доступ к конфигурационным сервисам `acm-config-1.example.ru` и `acm-config-2.example.ru`.
 
 ---
 
@@ -21,23 +24,23 @@
 Создайте изолированное пространство имен для оператора:
 
 ```bash
-kubectl create namespace itcacm-system
+kubectl create namespace acm-system
 ```
 
 ### Шаг 2: Добавление и обновление Helm-репозитория
 
 ```bash
-helm repo add itcacm https://charts.itcacm.io
+helm repo add acm https://charts.acm-demo.io
 helm repo update
 ```
 
 ### Шаг 3: Установка Helm-чарта оператора
 
-Выполните развертывание оператора `itcacmistio` в созданном пространстве имен:
+Выполните развертывание оператора `acm-operator-demo` в созданном пространстве имен:
 
 ```bash
-helm install itcacmistio itcacm/itcacmistio-operator \
-  --namespace itcacm-system \
+helm install acm-operator-demo acm/acm-operator-demo-operator \
+  --namespace acm-system \
   --set operator.replicaCount=2 \
   --set resources.requests.cpu=100m \
   --set resources.requests.memory=128Mi
@@ -63,13 +66,33 @@ helm install itcacmistio itcacm/itcacmistio-operator \
 Убедитесь, что поды оператора успешно запущены и находятся в состоянии `Running`:
 
 ```bash
-kubectl get pods -n itcacm-system -l app.kubernetes.io/name=itcacmistio-operator
+kubectl get pods -n acm-system -l app.kubernetes.io/name=acm-operator-demo-operator
 ```
 
 Проверьте статус доступности Health Probe (Liveness & Readiness):
 
 ```bash
-kubectl describe pod -n itcacm-system -l app.kubernetes.io/name=itcacmistio-operator
+kubectl describe pod -n acm-system -l app.kubernetes.io/name=acm-operator-demo-operator
 ```
 
 Ожидаемый результат: Статус всех подов `Running`, Readiness probe возвращает `HTTP 200 OK`.
+
+---
+
+## Проверка установки
+
+Для проверки текущего состояния установки и статуса подов в пространстве имен `acm-system` выполните команду:
+
+```bash
+kubectl get pods -n acm-system
+```
+
+---
+
+## Процедура отката
+
+В случае возникновения ошибок при обновлении или некорректной работы оператора выполните откат к предыдущей версии релиза с помощью Helm:
+
+```bash
+helm rollback acm-operator-demo 1 -n acm-system
+```
