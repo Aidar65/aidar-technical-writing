@@ -15,3 +15,11 @@ jobs:
         with:
           globs: 'docs/**/*.md'
           config: '.markdownlint.json'
+
+  spectral-lint:
+    name: OpenAPI Quality Gate (Spectral)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Spectral Lint
+        run: npx @stoplight/spectral-cli lint docs/system-analysis/integrations/openapi-spec.yaml
