@@ -35,4 +35,4 @@ nav:
   - Системный анализ:
       - ЧТЗ Телеметрии (ГОСТ 34): system-analysis/gost-34/chtz-telemetry.md
       - Контракты API: system-analysis/integrations/openapi-spec.yaml
-      - Sequence диаграммы: system-analysis/models/auth-flow.md
+      - Sequence диаграммы: system-analysis/sequence-diagrams.md
