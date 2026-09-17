@@ -1,5 +1,7 @@
 # Технический писатель / Content Engineer (Docs-as-Code)
 
+[![DocOps Quality Gate](https://github.com/Aidar65/aidar-technical-writing/actions/workflows/quality-gate.yml/badge.svg)](https://github.com/Aidar65/aidar-technical-writing/actions)
+
 > Инженерный подход: Системный анализ для меня — внутренний инструмент качественного документирования. Я самостоятельно разбираю архитектуру, контракты REST/AsyncAPI и требования по ГОСТ 34/19, снимая нагрузку с разработчиков.
 
 Двухтрековое инженерное портфолио, демонстрирующее компетенции на стыке **системного анализа** (System Analyst) и **технического писательства** (Technical Writer) с применением методологии **Docs-as-Code**.

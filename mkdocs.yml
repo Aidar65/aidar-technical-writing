@@ -29,10 +29,13 @@ extra_javascript:
 
 nav:
   - Главная: index.md
-  - Техническое писательство:
-      - Развертывание оператора: technical-writing/how-to/k8s-operator-deploy.md
-      - AI Doc Pipeline: technical-writing/explanation/ai-doc-pipeline.md
-  - Системный анализ:
-      - ЧТЗ Телеметрии (ГОСТ 34): system-analysis/gost-34/chtz-telemetry.md
-      - Контракты API: system-analysis/integrations/openapi-spec.yaml
+  - Tutorials (Быстрый старт):
+      - Обзор: tutorials/quickstart.md
+  - How-to Guides (Инструкции):
+      - Развертывание оператора: how-to/k8s-operator-deploy.md
+  - Reference (Справочники):
+      - ЧТЗ Телеметрии (ГОСТ 34): reference/chtz-telemetry.md
+      - Контракты API: system-analysis/integrations/openapi-spec.md
+  - Explanation (Концепции):
+      - AI Doc Pipeline: explanation/ai-doc-pipeline.md
       - Sequence диаграммы: system-analysis/sequence-diagrams.md
