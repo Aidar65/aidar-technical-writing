@@ -1,5 +1,5 @@
 > 🎯 **Live Demo:** https://aidar65.github.io/aidar-technical-writing/
-> 📩 **Контакты:** Telegram [@aidar_yarmakov](https://t.me/ambassador_ru) | jaarmakov@bk.ru
+> 📩 **Контакты:** Telegram [@Ambassador_ru](https://t.me/Ambassador_ru) | jaarmakov@bk.ru
 
 ## 📊 Ключевые показатели
 
@@ -28,4 +28,3 @@ graph TD
     D -->|Pull Request| E[Git Repository / CI Pipeline]
     E -->|CI: lint + Vale + strict build| F[Деплой: закрытый контур / GitHub Pages]
 ```
-
