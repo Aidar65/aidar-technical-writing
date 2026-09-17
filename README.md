@@ -2,6 +2,10 @@
 
 [![DocOps Quality Gate](https://github.com/Aidar65/aidar-technical-writing/actions/workflows/quality-gate.yml/badge.svg)](https://github.com/Aidar65/aidar-technical-writing/actions)
 
+> **Enterprise & Production Context:**
+> 5+ years of engineering and documentation management experience across closed-circuit enterprise systems (Nuclear Power, Critical Infrastructure, GovTech) under strict NDA. Real-world workflows utilized enterprise configuration management (CMDB / KKS) and internal VCS with digital signatures (УКЭП).
+> This public repository serves as an open Docs-as-Code & DocOps sandbox demonstrating modern specification standards, automated quality gates, and architecture-as-code practices.
+
 > Инженерный подход: Системный анализ для меня — внутренний инструмент качественного документирования. Я самостоятельно разбираю архитектуру, контракты REST/AsyncAPI и требования по ГОСТ 34/19, снимая нагрузку с разработчиков.
 
 Двухтрековое инженерное портфолио, демонстрирующее компетенции на стыке **системного анализа** (System Analyst) и **технического писательства** (Technical Writer) с применением методологии **Docs-as-Code**.
@@ -36,11 +40,11 @@
 
 | Категория | Название артефакта / Документа | Технологический стек / Формат | Ссылка на файл |
 | :--- | :--- | :--- | :--- |
-| **System Analysis** | ЧТЗ на подсистему промышленной телеметрии (ГОСТ 34.602) | ГОСТ 34, Markdown, КИИ 187-ФЗ | [`docs/system-analysis/gost-34/chtz-telemetry.md`](docs/system-analysis/gost-34/chtz-telemetry.md) |
+| **System Analysis** | ЧТЗ на подсистему промышленной телеметрии (ГОСТ 34.602) | ГОСТ 34, Markdown, КИИ 187-ФЗ | [`docs/reference/chtz-telemetry.md`](docs/reference/chtz-telemetry.md) |
 | **System Analysis** | OpenAPI 3.0 спецификация сервиса аутентификации | OpenAPI 3.0, YAML, REST API | [`docs/system-analysis/integrations/openapi-spec.yaml`](docs/system-analysis/integrations/openapi-spec.yaml) |
 | **System Analysis** | Диаграмма последовательности аутентификации и mTLS | PlantUML, UML Sequence Diagram | [`docs/system-analysis/models/auth-flow.puml`](docs/system-analysis/models/auth-flow.puml) |
-| **Technical Writing** | Руководство по развертыванию оператора acm-operator-demo в K8s | Diátaxis (How-To), Helm 3, K8s | [`docs/technical-writing/how-to/k8s-operator-deploy.md`](docs/technical-writing/how-to/k8s-operator-deploy.md) |
-| **Technical Writing** | Архитектура AI-пайплайна документации (Ollama + Qwen2.5) | Diátaxis (Explanation), Air-Gapped LLM | [`docs/technical-writing/explanation/ai-doc-pipeline.md`](docs/technical-writing/explanation/ai-doc-pipeline.md) |
+| **Technical Writing** | Руководство по развертыванию оператора acm-operator-demo в K8s | Diátaxis (How-To), Helm 3, K8s | [`docs/how-to/k8s-operator-deploy.md`](docs/how-to/k8s-operator-deploy.md) |
+| **Technical Writing** | Архитектура AI-пайплайна документации (Ollama + Qwen2.5) | Diátaxis (Explanation), Air-Gapped LLM | [`docs/explanation/ai-doc-pipeline.md`](docs/explanation/ai-doc-pipeline.md) |
 
 ---
 
