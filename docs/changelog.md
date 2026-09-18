@@ -6,13 +6,27 @@
 
 ---
 
+## [1.3.0] - 2026-09-01
+
+### Added
+- **DocOps Quality Gate:** Настроен GitHub Actions workflow (`.github/workflows/quality-gate.yml`) с проверками markdownlint, Vale и Lychee.
+- **Enterprise positioning:** Добавлен Enterprise & Production Context дисклеймер в главный README.md и создан профиль `profile/README.md`.
+
+### Fixed
+- Устранено дублирование разделов проверки подов в `docs/how-to/k8s-operator-deploy.md`, объединив их в единый раздел «Проверка работоспособности и статуса (Health Check)».
+- Синхронизирована матрица ссылок в README.md со структурой Diátaxis (`docs/tutorials/`, `docs/how-to/`, `docs/reference/`, `docs/explanation/`).
+
+### Changed
+- Зафиксирована единая версия релиза v1.3.0.
+
+---
+
 ## [1.2.0] - 2026-08-09
 
 ### Added
 - **ГОСТ 34.602:** ТЗ на подсистему промышленной телеметрии в Markdown (`docs/reference/chtz-telemetry.md`).
 - **OpenAPI 3.0:** Спецификация сервиса аутентификации (`docs/system-analysis/integrations/openapi-spec.yaml`).
 - **PlantUML / Mermaid:** Диаграммы последовательности mTLS аутентификации (`docs/system-analysis/sequence-diagrams.md`).
-- **DocOps Quality Gate:** Настроен `.github/workflows/quality-gate.yml` (markdownlint, Vale, Lychee link checker).
 
 ### Fixed
 - Приведены к строгому кодированию UTF-8 все файлы Markdown и YAML.

@@ -61,31 +61,21 @@ helm install acm-operator-demo acm/acm-operator-demo-operator \
 
 ---
 
-## Проверка работоспособности (Health Check)
+## Проверка работоспособности и статуса (Health Check)
 
-Убедитесь, что поды оператора успешно запущены и находятся в состоянии `Running`:
+Для проверки текущего состояния установки и статуса подов оператора в пространстве имен `acm-system` сначала выполните базовую проверку:
 
 ```bash
 kubectl get pods -n acm-system -l app.kubernetes.io/name=acm-operator-demo-operator
 ```
 
-Проверьте статус доступности Health Probe (Liveness & Readiness):
+Затем выполните детальный анализ событий и статуса доступности Health Probe (Liveness & Readiness):
 
 ```bash
 kubectl describe pod -n acm-system -l app.kubernetes.io/name=acm-operator-demo-operator
 ```
 
 Ожидаемый результат: Статус всех подов `Running`, Readiness probe возвращает `HTTP 200 OK`.
-
----
-
-## Проверка установки
-
-Для проверки текущего состояния установки и статуса подов в пространстве имен `acm-system` выполните команду:
-
-```bash
-kubectl get pods -n acm-system
-```
 
 ---
 
