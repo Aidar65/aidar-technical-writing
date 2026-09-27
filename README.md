@@ -30,8 +30,8 @@
 
 ### Ключевые предметные области
 
-- **Системный анализ и проектирование (SA)**: Сбор и систематизация требований, разработка Технических заданий (ТЗ/ЧТЗ по ГОСТ 34.602-89), проектирование REST/gRPC API (OpenAPI 3.0), моделирование процессов и архитектуры (PlantUML, UML Sequence Diagrams).
-- **Техническое писательство (TW)**: Разработка пользовательской и эксплуатационной документации по фреймворку Diátaxis, подготовка руководств по развертыванию в Kubernetes, документация пайплайнов автоматизации.
+- **Системный анализ и проектирование (SA)**: сбор и систематизация требований, разработка технических заданий (ТЗ/ЧТЗ по ГОСТ 34.602-89). Также проектирование REST/gRPC API (OpenAPI 3.0) и моделирование архитектуры (PlantUML, UML Sequence Diagrams).
+- **Техническое писательство (TW)**: Разработка пользовательской и эксплуатационной документации по фреймворку Diátaxis, подготовка руководств по развёртыванию в Kubernetes, документация пайплайнов автоматизации.
 - **Docs-as-Code Ecosystem**: Хранение документации в Git, непрерывная интеграция в CI/CD (Quality Gates, markdownlint), автоматизация проверок.
 
 ---
@@ -39,7 +39,7 @@
 ## Как посмотреть это портфолио за 5 минут
 
 1. **Генерация и проверка документации с помощью локальных LLM** — мой подход к AI-автоматизации в NDA-контурах: что делает модель, что остаётся человеку.
-2. **Руководство по развертыванию оператора в Kubernetes** — пример пошаговой инструкции с проверкой установки и процедурой отката.
+2. **Руководство по развёртыванию оператора в Kubernetes** — пример пошаговой инструкции с проверкой установки и процедурой отката.
 3. **OpenAPI 3.0 спецификация и sequence-диаграмма аутентификации** — пример контрактов и моделей взаимодействия сервисов.
 
 Остальное — справочные материалы. Каждый коммит проверяют три гейта: markdownlint, Spectral, Vale.
@@ -53,7 +53,7 @@
 | **System Analysis** | ЧТЗ на подсистему промышленной телеметрии (ГОСТ 34.602) | ГОСТ 34, Markdown, КИИ 187-ФЗ | [`docs/reference/chtz-telemetry.md`](docs/reference/chtz-telemetry.md) |
 | **System Analysis** | OpenAPI 3.0 спецификация сервиса аутентификации | OpenAPI 3.0, YAML, REST API | [`docs/system-analysis/integrations/openapi-spec.yaml`](docs/system-analysis/integrations/openapi-spec.yaml) |
 | **System Analysis** | Диаграмма последовательности аутентификации и mTLS | PlantUML, UML Sequence Diagram | [`docs/system-analysis/models/auth-flow.puml`](docs/system-analysis/models/auth-flow.puml) |
-| **Technical Writing** | Руководство по развертыванию оператора acm-operator-demo в K8s | Diátaxis (How-To), Helm 3, K8s | [`docs/how-to/k8s-operator-deploy.md`](docs/how-to/k8s-operator-deploy.md) |
+| **Technical Writing** | Руководство по развёртыванию оператора acm-operator-demo в K8s | Diátaxis (How-To), Helm 3, K8s | [`docs/how-to/k8s-operator-deploy.md`](docs/how-to/k8s-operator-deploy.md) |
 | **Technical Writing** | Архитектура AI-пайплайна документации (Ollama + Qwen2.5) | Diátaxis (Explanation), Air-Gapped LLM | [`docs/explanation/ai-doc-pipeline.md`](docs/explanation/ai-doc-pipeline.md) |
 
 ---

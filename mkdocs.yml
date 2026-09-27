@@ -2,6 +2,10 @@ site_name: 'Aidar Yarmakov | Docs-as-Code & Architecture v1.3.0'
 site_url: https://aidar65.github.io/aidar-technical-writing/
 site_description: Technical Content Engineer Portfolio — Docs-as-Code, OpenAPI, GOST, CI/CD
 
+repo_url: https://github.com/Aidar65/aidar-technical-writing
+repo_name: Aidar65/aidar-technical-writing
+edit_uri: edit/main/docs/
+
 theme:
   name: material
   language: ru
@@ -12,6 +16,8 @@ theme:
     - navigation.indexes
     - navigation.sections
     - content.code.copy
+    - content.action.edit
+    - content.action.view
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -32,8 +38,9 @@ nav:
   - Tutorials (Быстрый старт):
       - Обзор: tutorials/quickstart.md
   - How-to Guides (Инструкции):
-      - Развертывание оператора: how-to/k8s-operator-deploy.md
+      - Развёртывание оператора: how-to/k8s-operator-deploy.md
   - Reference (Справочники):
+      - Глоссарий: reference/glossary.md
       - ЧТЗ Телеметрии (ГОСТ 34): reference/chtz-telemetry.md
       - Контракты API: system-analysis/integrations/openapi-spec.md
   - Explanation (Концепции):
