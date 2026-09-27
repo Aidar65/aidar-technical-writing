@@ -1,0 +1,21 @@
+# Aidar Yarmakov | Docs-as-Code & Architecture
+
+> Портфолио технического писателя и системного аналитика: методология Diátaxis, Docs-as-Code, OpenAPI, GOST, CI/CD quality gates. Все кейсы обезличены — реальная документация ведётся в закрытых контурах под NDA.
+
+Документация организована по фреймворку Diátaxis (Tutorials, How-to, Reference, Explanation). Каждая страница — самостоятельный Markdown-файл в репозитории; ссылки ниже ведут на исходники.
+
+## Docs
+
+- [Главная](index.md): ключевые показатели портфолио, схема локального AI-пайплайна документации.
+- [Быстрый старт](tutorials/quickstart.md): точка входа для навигации по портфолио.
+- [Развёртывание оператора в Kubernetes](how-to/k8s-operator-deploy.md): пошаговая инструкция How-To с проверкой установки и процедурой отката через Helm 3.
+- [Глоссарий](reference/glossary.md): расшифровка отраслевых аббревиатур (ЕСКД, ГОСТ 34, ЗОКИИ, УКЭП и другие).
+- [ЧТЗ на подсистему телеметрии](reference/chtz-telemetry.md): пример технического задания по ГОСТ 34.602.
+- [Контракты API](system-analysis/integrations/openapi-spec.md): спецификация OpenAPI 3.0 сервиса аутентификации.
+- [AI Doc Pipeline](explanation/ai-doc-pipeline.md): архитектура локального AI-пайплайна на Ollama и Qwen2.5-Coder.
+- [Sequence-диаграммы](system-analysis/sequence-diagrams.md): mTLS-аутентификация и выпуск JWT.
+
+## Optional
+
+- [История изменений](changelog.md): журнал релизов портфолио по Keep a Changelog.
+- [Style Guide](https://github.com/Aidar65/aidar-technical-writing/blob/main/style-guide.md): стандарты стиля документации проекта.
